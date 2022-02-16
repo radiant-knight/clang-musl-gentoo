@@ -11,6 +11,3 @@ sys-devel/clang
 sys-devel/clang-common
 sys-devel/clang-runtime
 sys-libs/polly
-#sys-devel/llvm-config
-#sys-devel/clang-config
-
