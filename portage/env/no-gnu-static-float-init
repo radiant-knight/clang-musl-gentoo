@@ -1,0 +1,2 @@
+CFLAGS="${CFLAGS} -Wno-gnu-static-float-init"
+CXXFLAGS="${CXXFLAGS} -Wno-gnu-static-float-init"

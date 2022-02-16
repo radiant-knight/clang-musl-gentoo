@@ -1,0 +1,14 @@
+sys-devel/clang default-compiler-rt default-libcxx default-lld llvm-libunwind static-analyzer llvm_targets_X86 -llvm_targets_AMDGPU -llvm_targets_NVPTX
+sys-devel/llvm llvm_targets_X86 -gold -llvm_targets_AMDGPU -llvm_targets_NVPTX
+sys-devel/clang-runtime libcxx
+media-libs/mesa X -llvm -gallium
+gui-wm/sway tray wallpapers X
+sys-process/htop lm-sensors
+#sys-devel/clang-runtime -sanitize
+dev-util/ccache -static-c++
+#app-portage/portage-utils -openmp
+#app-crypt/libb2 -openmp
+gui-apps/waybar tray wifi sndio
+www-client/links X
+media-libs/libwebp tiff
+media-sound/easyeffects calf
