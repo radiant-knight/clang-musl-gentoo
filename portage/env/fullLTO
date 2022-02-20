@@ -1,6 +1,0 @@
-
-CFLAGS="${CFLAGS} -flto"
-CXXFLAGS="${CFLAGS}"
-FCFLAGS="${CFLAGS}"
-FFLAGS="${CFLAGS}"
-LDFLAGS="${LDFLAGS} -flto -Wl,--as-needed"

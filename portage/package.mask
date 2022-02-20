@@ -1,3 +1,0 @@
-#sys-devel/clang
-#sys-devel/llvm
-dev-lang/rust
