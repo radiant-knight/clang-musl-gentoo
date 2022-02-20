@@ -1,2 +1,0 @@
-CFLAGS="-march=sandybridge -O3 -pipe -fomit-frame-pointer -flto=thin" #-mcx16 -msahf
-CXXFLAGS="${CFLAGS}"
