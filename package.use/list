@@ -1,9 +1,0 @@
-sys-devel/clang-runtime sanitize
-sys-devel/llvm -binutils-plugin polly llvm_targets_X86
-sys-devel/clang llvm_targets_X86
-media-sound/easyeffects calf
-gui-apps/waybar sndio network tray wifi
-dev-lang/rust::clang-musl default-libcxx system-llvm system-bootstrap
-xfce-base/thunar libnotify -udisks -trash-panel-plugin
-sys-auth/polkit duktape
-sys-libs/libblockdev -cryptsetup

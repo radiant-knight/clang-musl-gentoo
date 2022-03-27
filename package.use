@@ -1,0 +1,68 @@
+sys-devel/clang-runtime sanitize
+sys-devel/llvm -binutils-plugin libedit polly llvm_targets_X86
+sys-devel/clang llvm_targets_X86
+media-sound/easyeffects calf
+gui-apps/waybar network tray wifi libcxx -mpd
+dev-lang/rust default-libcxx system-llvm system-bootstrap
+xfce-base/thunar udisks -trash-panel-plugin
+sys-auth/polkit duktape
+x11-wm/openbox imlib session startup-notification xdg
+x11-misc/tint2 battery startup-notification tint2conf
+x11-terms/rxvt-unicode 256-color blink startup-notification xft unicode3 utmp wtmp
+x11-wm/dwm savedconfig
+xfce-base/xfce4-settings libcanberra
+gnome-base/gvfs archive mtp
+xfce-extra/tumbler curl ffmpeg
+www-client/w3m imlib
+www-client/uget appindicator
+media-video/vlc libass xml taglib svg
+#dev-util/sccache dist-client dist-server memcached
+net-im/kotatogram-desktop -jemalloc -spell -hunspell -X
+net-im/telegram-desktop -spell -hunspell -jemalloc
+media-libs/openh264 -plugin
+sys-process/htop lm-sensors
+#dev-libs/libpcre -readline
+sys-kernel/linux-firmware savedconfig
+media-libs/mesa -gallium -llvm
+gui-wm/sway tray wallpapers X
+dev-util/ccache -static-c++
+# package.use# required by media-libs/mesa-21.3.4::musl
+# required by mesa (argument)
+>=media-libs/libglvnd-1.4.0 X
+# required by gui-wm/sway-1.6.1-r1::gentoo
+# required by sway (argument)
+>=gui-libs/wlroots-0.14.0-r2 X
+# required by media-sound/easyeffects-6.1.5::gentoo
+# required by easyeffects (argument)
+>=media-libs/rubberband-2.0.0 ladspa
+# required by media-sound/easyeffects-6.1.5::gentoo[calf]
+# required by easyeffects (argument)
+>=media-plugins/calf-0.90.3-r1 lv2
+# required by xfce-base/xfce4-panel-4.16.3::gentoo[dbusmenu]
+# required by xfce-base/thunar-4.16.10::gentoo[trash-panel-plugin]
+# required by thunar (argument)
+>=dev-libs/libdbusmenu-16.04.0-r1 gtk3
+# required by app-shells/fish-3.3.1-r1::gentoo
+# required by fish (argument)
+>=dev-libs/libpcre2-10.39 pcre32
+# required by dev-python/python3-xapp-2.2.1-r1::gentoo
+# required by net-wireless/blueberry-1.4.6::gentoo[python_single_target_python3_9]
+# required by blueberry (argument)
+>=x11-libs/xapp-2.2.8 introspection
+# required by xfce-base/thunar-4.17.7::gentoo[udisks]
+# required by thunar (argument)
+>=gnome-base/gvfs-1.48.1-r1 udisks
+# required by x11-misc/obmenu-generator-0.90::gentoo
+# required by obmenu-generator (argument)
+>=dev-lang/perl-5.34.0-r6 gdbm
+# required by media-video/vlc-3.0.17.3::gentoo
+# required by vlc (argument)
+>=sys-libs/zlib-1.2.11-r5 minizip
+# required by net-im/kotatogram-desktop-1.4.9::yago
+# required by kotatogram-desktop (argument)
+>=media-video/ffmpeg-4.4.1-r2 opus
+# required by net-im/kotatogram-desktop-1.4.9::yago
+# required by kotatogram-desktop (argument)
+>=media-libs/tg_owt-0_pre20220209 -X
+x11-misc/rofi -X
+dev-libs/libucl lua_single_target_lua5-3

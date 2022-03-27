@@ -1,6 +1,8 @@
 CFLAGS="-march=native -O3 -pipe"
-CXXFLAGS="${CFLAGS}"
-CXXFLAGS="${CFLAGS}"
-FCFLAGS="${CFLAGS}"
-FFLAGS="${CFLAGS}"
+CXXFLAGS="-march=native -O3 -pipe"
+FCFLAGS="-march=native -O3 -pipe"
+FFLAGS="-march=native -O3 -pipe"
 LDFLAGS="-Wl,-O2 -Wl,--as-needed"
+
+#MAKEOPTS="-j1 -l2"
+#NINJAOPTS="-j1 -l2"

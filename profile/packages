@@ -1,6 +1,0 @@
-
--*sys-devel/gcc
--*sys-devel/binutils
-#-*sys-devel/gcc-config
-#-*sys-devel/binutils-config
-

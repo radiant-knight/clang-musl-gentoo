@@ -1,5 +1,0 @@
-#>=sys-kernel/gentoo-kernel-bin-5.15.17
-#>=sys-kernel/gentoo-kernel-bin-5.15.16
-#<dev-lang/spidermonkey-91.6.0
-#*/*binutils
-#*/*gcc

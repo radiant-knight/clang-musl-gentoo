@@ -1,0 +1,5 @@
+www-client/firefox
+sys-block/zram-init::mv
+app-shells/push::mv
+app-portage/portage-bashrc-mv::mv
+app-shells/runtitle::mv

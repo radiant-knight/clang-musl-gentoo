@@ -1,0 +1,12 @@
+#>=sys-kernel/gentoo-kernel-bin-5.15.17
+#>=sys-kernel/gentoo-kernel-bin-5.15.16
+#<dev-lang/spidermonkey-91.6.0
+#*/*binutils
+#*/*gcc
+*/*::mv
+>=x11-terms/rxvt-unicode-9.30::gentoo
+>sys-apps/bubblewrap-0.5.0::gentoo
+virtual/service-manager::yago
+sys-libs/obstack-standalone::12101111-overlay
+virtual/libelf::12101111-overlay
+sys-apps/xdg-desktop-portal-gtk::yago
