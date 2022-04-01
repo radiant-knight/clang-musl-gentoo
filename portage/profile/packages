@@ -1,4 +1,0 @@
-
--*sys-devel/gcc
--*sys-devel/binutils
-#-*sys-libs/musl

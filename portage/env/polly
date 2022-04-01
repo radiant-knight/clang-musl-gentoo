@@ -1,6 +1,0 @@
-# Clang with Polly
-
-CFLAGS="${CFLAGS} -mllvm -polly -mllvm -polly-vectorizer=stripmine"
-CXXFLAGS="${CFLAGS}"
-FCFLAGS="${CFLAGS}"
-FFLAGS="${CFLAGS}"
