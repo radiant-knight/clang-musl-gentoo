@@ -1,0 +1,6 @@
+# No LTO
+media-plugins/calf /-flto*/-fno-lto
+
+# No Polly
+sys-apps/hdparm /-mllvm*// /-polly*//
+net-mail/mailutils /-mllvm*// /-polly*//

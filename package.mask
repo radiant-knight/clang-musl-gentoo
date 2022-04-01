@@ -4,7 +4,7 @@
 #*/*binutils
 #*/*gcc
 */*::mv
->=x11-terms/rxvt-unicode-9.30::gentoo
+>x11-terms/rxvt-unicode-9.30::gentoo
 >sys-apps/bubblewrap-0.5.0::gentoo
 virtual/service-manager::yago
 sys-libs/obstack-standalone::12101111-overlay

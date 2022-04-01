@@ -11,3 +11,6 @@ dev-libs/bemenu ~amd64
 gui-apps/waybar **
 media-plugins/calf **
 gui-liri/liri-shel **
+media-libs/lsp-plugins **
+gui-wm/kiwmi **
+www-client/firefox-musl-bin **

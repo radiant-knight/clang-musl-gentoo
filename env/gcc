@@ -1,0 +1,9 @@
+CFLAGS="-march=sandybridge -mno-avx -mno-aes -mno-rdrnd -mtune=sandybridge -O2 -pipe"
+CXXFlAGS="-march=sandybridge -mno-avx -mno-aes -mno-rdrnd -mtune=sandybridge -O2 -pipe"
+FCFLAGS="-march=sandybridge -mno-avx -mno-aes -mno-rdrnd -mtune=sandybridge -O2 -pipe"
+FFLAGS="-march=sandybridge -mno-avx -mno-aes -mno-rdrnd -mtune=sandybridge -O2 -pipe"
+
+LDFLAGS="${LDFLAGS_NOLTO} -fuse-ld=bfd"
+
+CC="gcc"
+CXX="g++"

@@ -19,7 +19,35 @@ sync-type = git
 sync-uri = https://github.com/gentoo-mirror/gentoobr.git
 
 
-[not-exist]
-location = /var/db/repos/not-exist
-sync-type = 
-sync-uri = 
+
+[12101111-overlay]
+location = /var/db/repos/12101111-overlay
+sync-type = git
+sync-uri = https://github.com/radiant-knight/overlay
+
+
+
+[yago]
+location = /var/db/repos/yago
+sync-type = git
+sync-uri = https://github.com/capezotte/yago
+
+[mv]
+location = /var/db/repos/mv
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/mv.git
+
+[wayland-desktop]
+location = /var/db/repos/wayland-desktop
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/wayland-desktop.git
+
+[librewolf]
+location = /var/db/repos/librewolf
+sync-type = git
+sync-uri = https://gitlab.com/librewolf-community/browser/gentoo.git
+
+[dm9pZCAq]
+location = /var/db/repos/dm9pZCAq
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/dm9pZCAq.git

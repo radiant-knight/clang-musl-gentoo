@@ -8,7 +8,7 @@ xfce-base/thunar udisks -trash-panel-plugin
 sys-auth/polkit duktape
 x11-wm/openbox imlib session startup-notification xdg
 x11-misc/tint2 battery startup-notification tint2conf
-x11-terms/rxvt-unicode 256-color blink startup-notification xft unicode3 utmp wtmp
+x11-terms/rxvt-unicode 256-color blink startup-notification xft unicode3 utmp wtmp perl fading-colors
 x11-wm/dwm savedconfig
 xfce-base/xfce4-settings libcanberra
 gnome-base/gvfs archive mtp
@@ -66,3 +66,14 @@ dev-util/ccache -static-c++
 >=media-libs/tg_owt-0_pre20220209 -X
 x11-misc/rofi -X
 dev-libs/libucl lua_single_target_lua5-3
+xfce-extra/xfce4-sensors-plugin lm-sensors hddtemp
+#xfce-extra/xfce4-systemload-plugin upower
+# required by gnome-base/gnome-shell-42.0::gentoo
+# required by gnome-base/gdm-42.0::gentoo
+>=gnome-base/gnome-control-center-42.0 networkmanager
+media-video/wireplumber lua_single_target_lua5-4
+app-portage/portage-bashrc-mv -cflags -ccache -remove-la
+sys-devel/gcc -lto -zstd
+>=media-libs/libpng-1.6.37-r2 apng
+>=media-libs/libvpx-1.11.0 postproc
+#www-client/firefox-musl-bin -hardened
