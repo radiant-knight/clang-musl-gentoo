@@ -42,12 +42,9 @@ location = /var/db/repos/wayland-desktop
 sync-type = git
 sync-uri = https://github.com/gentoo-mirror/wayland-desktop.git
 
-[librewolf]
-location = /var/db/repos/librewolf
-sync-type = git
-sync-uri = https://gitlab.com/librewolf-community/browser/gentoo.git
 
-[dm9pZCAq]
-location = /var/db/repos/dm9pZCAq
+
+[Arknights]
+location = /var/db/repos/Arknights
 sync-type = git
-sync-uri = https://github.com/gentoo-mirror/dm9pZCAq.git
+sync-uri = https://github.com/radiant-knight/rhodes-island

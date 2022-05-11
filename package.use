@@ -1,6 +1,6 @@
-sys-devel/clang-runtime sanitize
-sys-devel/llvm -binutils-plugin libedit polly llvm_targets_X86
-sys-devel/clang llvm_targets_X86
+#sys-devel/clang-runtime sanitize
+sys-devel/llvm -binutils-plugin polly libedit llvm_targets_X86
+sys-devel/clang -pie llvm_targets_X86
 media-sound/easyeffects calf
 gui-apps/waybar network tray wifi libcxx -mpd
 dev-lang/rust default-libcxx system-llvm system-bootstrap
@@ -15,7 +15,7 @@ gnome-base/gvfs archive mtp
 xfce-extra/tumbler curl ffmpeg
 www-client/w3m imlib
 www-client/uget appindicator
-media-video/vlc libass xml taglib svg
+media-video/vlc libass xml taglib svg skins
 #dev-util/sccache dist-client dist-server memcached
 net-im/kotatogram-desktop -jemalloc -spell -hunspell -X
 net-im/telegram-desktop -spell -hunspell -jemalloc
@@ -64,7 +64,7 @@ dev-util/ccache -static-c++
 # required by net-im/kotatogram-desktop-1.4.9::yago
 # required by kotatogram-desktop (argument)
 >=media-libs/tg_owt-0_pre20220209 -X
-x11-misc/rofi -X
+x11-misc/rofi X
 dev-libs/libucl lua_single_target_lua5-3
 xfce-extra/xfce4-sensors-plugin lm-sensors hddtemp
 #xfce-extra/xfce4-systemload-plugin upower
@@ -77,3 +77,20 @@ sys-devel/gcc -lto -zstd
 >=media-libs/libpng-1.6.37-r2 apng
 >=media-libs/libvpx-1.11.0 postproc
 #www-client/firefox-musl-bin -hardened
+lxqt-base/lxqt-meta -about -display-manager -filemanager -trash powermanagement
+x11-libs/libfm gtk
+# required by gui-apps/mpvpaper-1.2::guru
+# required by mpvpaper (argument)
+>=media-video/mpv-0.34.1-r1 libmpv
+app-emulation/qemu QEMU_SOFTMMU_TARGETS: x86_64 QEMU_USER_TARGETS: x86_64
+x11-misc/tint2 svg
+gui-apps/wlogout layershell zsh-completions
+x11-wm/icewm imlib
+x11-libs/vte -vala
+app-editors/nano magic
+#x11-misc/urxvt-perls deprecated
+sys-apps/systemd-utils -udev
+# required by gnome-base/gnome-keyring-40.0-r1::gentoo
+# required by virtual/secret-service-0::gentoo
+# required by app-crypt/libsecret-0.20.5-r3::gentoo
+>=app-crypt/gcr-3.41.0 gtk
