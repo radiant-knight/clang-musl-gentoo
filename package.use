@@ -78,6 +78,7 @@ sys-devel/gcc -lto -zstd
 >=media-libs/libvpx-1.11.0 postproc
 #www-client/firefox-musl-bin -hardened
 lxqt-base/lxqt-meta -about -display-manager -filemanager -trash powermanagement
+lxqt-base/lxqt-panel cpuload lm-sensors networkmonitor sysstat tray
 x11-libs/libfm gtk
 # required by gui-apps/mpvpaper-1.2::guru
 # required by mpvpaper (argument)
@@ -94,3 +95,7 @@ sys-apps/systemd-utils -udev
 # required by virtual/secret-service-0::gentoo
 # required by app-crypt/libsecret-0.20.5-r3::gentoo
 >=app-crypt/gcr-3.41.0 gtk
+net-wireless/blueman appindicator
+media-sound/pulseeffects calf
+sci-libs/fftw -fortran
+dev-util/geany -vte
