@@ -1,5 +1,7 @@
-CFLAGS="${FLAGS_NO_LTO}"
-CXXFLAGS="${FLAGS_NO_LTO}"
-FCFLAGS="${FLAGS_NO_LTO}"
-FFLAGS="${FLAGS_NO_LTO}"
-LDFLAGS="${LDFLAGS_NO_LTO}"
+_NOLTO_="-march=sandybridge -mno-avx -mno-aes -mno-rdrnd -mtune=sandybridge -O3 -pipe \
+-falign-functions=32 -ffunction-sections -fdata-sections \
+-fomit-frame-pointer -mllvm -polly -mllvm -polly-vectorizer=stripmine"
+CFLAGS="${_NOLTO_}"
+CXXFLAGS="${_NOLTO_}"
+FCFLAGS="${_NOLTO_}"
+FFLAGS="${_NOLTO_}"

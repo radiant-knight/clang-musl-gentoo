@@ -2,3 +2,5 @@ sys-kernel/linux-firmware *
 sys-firmware/intel-microcode *
 media-fonts/mikachan-font-ttf *
 app-vim/colorschemes *
+gui-apps/pico-wayfire *
+media-fonts/joypixels *

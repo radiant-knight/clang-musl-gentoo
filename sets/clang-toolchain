@@ -1,4 +1,4 @@
-# Clang/LLVM Toolchain
+
 sys-devel/llvm
 sys-libs/libcxx
 sys-libs/libcxxabi
@@ -12,5 +12,3 @@ sys-devel/clang-common
 sys-devel/clang-runtime
 sys-libs/polly
 sys-libs/libomp
-#sys-devel/llvm-config
-#sys-devel/clang-config

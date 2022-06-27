@@ -16,3 +16,5 @@ gui-liri/liri-shel **
 gui-wm/kiwmi **
 www-client/firefox-musl-bin **
 x11-misc/picom **
+gui-apps/pico-wayfire **
+#x11-libs/pixman **
