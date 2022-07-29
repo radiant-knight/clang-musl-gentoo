@@ -14,17 +14,16 @@ xfce-base/xfce4-settings libcanberra
 gnome-base/gvfs archive mtp
 xfce-extra/tumbler curl ffmpeg
 www-client/w3m imlib
-www-client/uget appindicator
 media-video/vlc libass xml taglib svg skins
 #dev-util/sccache dist-client dist-server memcached
-net-im/kotatogram-desktop -jemalloc -spell -hunspell -X
+net-im/kotatogram-desktop -jemalloc -spell -hunspell -wayland
 net-im/telegram-desktop -spell -hunspell -jemalloc
 media-libs/openh264 -plugin
 sys-process/htop lm-sensors
 #dev-libs/libpcre -readline
 sys-kernel/linux-firmware savedconfig
 media-libs/mesa -gallium -llvm
-gui-wm/sway tray wallpapers X -swaylock
+gui-wm/sway tray X -swaylock
 dev-util/ccache -static-c++
 # package.use# required by media-libs/mesa-21.3.4::musl
 # required by mesa (argument)
@@ -63,7 +62,7 @@ dev-util/ccache -static-c++
 >=media-video/ffmpeg-4.4.1-r2 opus
 # required by net-im/kotatogram-desktop-1.4.9::yago
 # required by kotatogram-desktop (argument)
->=media-libs/tg_owt-0_pre20220209 -X
+#>=media-libs/tg_owt-0_pre20220209 -X
 x11-misc/rofi X
 dev-libs/libucl lua_single_target_lua5-3
 xfce-extra/xfce4-sensors-plugin lm-sensors hddtemp
@@ -90,38 +89,37 @@ gui-apps/wlogout layershell zsh-completions
 x11-wm/icewm imlib
 x11-libs/vte -vala
 app-editors/nano magic
+sys-apps/s6-linux-init -sysv-utils
 #x11-misc/urxvt-perls deprecated
 #sys-apps/systemd-utils -udev
 # required by gnome-base/gnome-keyring-40.0-r1::gentoo
 # required by virtual/secret-service-0::gentoo
 # required by app-crypt/libsecret-0.20.5-r3::gentoo
 >=app-crypt/gcr-3.41.0 gtk
-net-wireless/blueman appindicator
 media-sound/pulseeffects calf
+media-sound/pulseaudio -daemon
 sci-libs/fftw -fortran
 dev-util/geany -vte
 media-libs/gstreamer -caps -introspection -orc
-kde-plasma/plasma-meta -browser-integration -crash-handler -crypt
+kde-plasma/plasma-meta -browser-integration -crash-handler -crypt -wallpapers
+x11-wm/enlightenment acpi udisks xwayland
+x11-wm/fvwm svg
+mate-base/mate-control-center accountsservice
+mate-base/mate -themes
+mate-extra/mate-utils udisks
+mate-base/mate-settings-daemon rfkill
+mate-extra/mate-sensors-applet lm-sensors
+mate-base/mate-desktop startup-notification
+mate-base/mate-applets-meta sensors
 media-libs/phonon -vlc
-net-misc/networkmanager -gtk-doc -lto -ppp libedit
+net-misc/networkmanager -gtk-doc -lto -nss -ppp libedit gnutls
 media-fonts/noto -cjk -extra
 kde-frameworks/kitemmodels qml
 # required by kde-plasma/xdg-desktop-portal-kde-5.24.5-r1::gentoo
 # required by kde-plasma/plasma-meta-5.24.5::gentoo[desktop-portal]
 # required by plasma-meta (argument)
 >=dev-qt/qtprintsupport-5.15.4 cups
-# required by net-print/cups-filters-1.28.15::gentoo[postscript]
-# required by net-print/cups-2.4.1::gentoo
-# required by dev-qt/qtprintsupport-5.15.4::gentoo[cups]
-# required by kde-frameworks/kdelibs4support-5.94.0::gentoo
-# required by kde-plasma/khotkeys-5.24.5::gentoo
-# required by kde-plasma/plasma-meta-5.24.5::gentoo
-# required by plasma-meta (argument)
 >=app-text/ghostscript-gpl-9.56.1 cups
-# required by kde-plasma/plasma-workspace-5.24.5-r1::gentoo
-# required by kde-plasma/kdeplasma-addons-5.24.5-r1::gentoo
-# required by kde-plasma/plasma-meta-5.24.5::gentoo
-# required by plasma-meta (argument)
 >=kde-frameworks/prison-5.94.0 qml
 # required by kde-frameworks/qqc2-desktop-style-5.94.0::gentoo
 # required by kde-plasma/plasma-desktop-5.24.5::gentoo
@@ -129,7 +127,6 @@ kde-frameworks/kitemmodels qml
 # required by plasma-meta (argument)
 >=kde-frameworks/sonnet-5.94.0 qml
 kde-apps/kio-extras -sftp
-gnome-extra/nm-applet appindicator
 #media-libs/gstreamer introspection
 #gui-wm/wayfire -system-wlroots
 gui-apps/pico-wayfire recommended -fonts
@@ -157,10 +154,5 @@ xfce-extra/xfce4-power-manager networkmanager
 # required by @selected
 # required by @world (argument)
 >=kde-plasma/kwin-5.25.0 lock
-# required by kde-frameworks/plasma-5.95.0-r3::gentoo
-# required by kde-plasma/kwin-5.25.0::gentoo
-# required by kde-plasma/plasma-desktop-5.25.0::gentoo
-# required by kde-plasma/plasma-meta-5.25.0::gentoo
-# required by @selected
-# required by @world (argument)
 >=kde-frameworks/kconfig-5.95.0 qml
+>=sys-libs/libcap-2.65 static-libs

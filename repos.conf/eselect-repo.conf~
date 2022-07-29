@@ -49,7 +49,13 @@ location = /var/db/repos/dm9pZCAq
 sync-type = git
 sync-uri = https://github.com/gentoo-mirror/dm9pZCAq.git
 
+
 [12101111-overlay]
 location = /var/db/repos/12101111-overlay
 sync-type = git
 sync-uri = https://github.com/12101111/overlay
+
+[elementary]
+location = /var/db/repos/elementary
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/elementary.git

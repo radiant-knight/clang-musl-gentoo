@@ -1,1 +1,1 @@
-RUSTFLAGS="${RUSTFLAGS_NOLTO}"
+RUSTFLAGS="${RUSTFLAGS_NOLTO} -Clink-arg=-Wl,-O3,--as-needed,--icf=safe"

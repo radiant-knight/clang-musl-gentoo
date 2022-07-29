@@ -1,7 +1,8 @@
-#www-client/firefox
+www-client/firefox
 sys-block/zram-init::mv
 app-shells/push::mv
 app-portage/portage-bashrc-mv::mv
 app-shells/runtitle::mv
 www-client/firefox-musl-bin
 sys-devel/binutils::12101111-overlay
+#gui-apps/waybar::12101111-overlay

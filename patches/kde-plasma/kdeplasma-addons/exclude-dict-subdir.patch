@@ -1,0 +1,11 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -78,7 +78,7 @@ ecm_set_disabled_deprecation_versions(
+     QT 5.15.2
+ )
+ 
+-add_subdirectory(dict)
++#add_subdirectory(dict)
+ add_subdirectory(applets)
+ add_subdirectory(dataengines)
+ add_subdirectory(runners)
