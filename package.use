@@ -3,7 +3,6 @@ sys-devel/llvm -binutils-plugin polly libedit llvm_targets_X86
 sys-devel/clang -pie llvm_targets_X86
 media-sound/easyeffects calf
 gui-apps/waybar network tray wifi libcxx -mpd
-dev-lang/rust default-libcxx system-llvm system-bootstrap
 xfce-base/thunar udisks -trash-panel-plugin
 sys-auth/polkit duktape
 x11-wm/openbox imlib session startup-notification xdg
@@ -18,70 +17,40 @@ media-video/vlc libass xml taglib svg skins
 #dev-util/sccache dist-client dist-server memcached
 net-im/kotatogram-desktop -jemalloc -spell -hunspell -wayland
 net-im/telegram-desktop -spell -hunspell -jemalloc
-media-libs/openh264 -plugin
+media-libs/openh264 plugin
 sys-process/htop lm-sensors
 #dev-libs/libpcre -readline
 sys-kernel/linux-firmware savedconfig
 media-libs/mesa -gallium -llvm
-gui-wm/sway tray X -swaylock
+gui-wm/sway tray X grimshot wallpapers
 dev-util/ccache -static-c++
-# package.use# required by media-libs/mesa-21.3.4::musl
-# required by mesa (argument)
 >=media-libs/libglvnd-1.4.0 X
-# required by gui-wm/sway-1.6.1-r1::gentoo
-# required by sway (argument)
 >=gui-libs/wlroots-0.14.0-r2 X
-# required by media-sound/easyeffects-6.1.5::gentoo
-# required by easyeffects (argument)
 >=media-libs/rubberband-2.0.0 ladspa
-# required by media-sound/easyeffects-6.1.5::gentoo[calf]
-# required by easyeffects (argument)
 >=media-plugins/calf-0.90.3-r1 lv2
-# required by xfce-base/xfce4-panel-4.16.3::gentoo[dbusmenu]
-# required by xfce-base/thunar-4.16.10::gentoo[trash-panel-plugin]
-# required by thunar (argument)
 >=dev-libs/libdbusmenu-16.04.0-r1 gtk3
-# required by app-shells/fish-3.3.1-r1::gentoo
-# required by fish (argument)
 >=dev-libs/libpcre2-10.39 pcre32 -libedit
-# required by dev-python/python3-xapp-2.2.1-r1::gentoo
-# required by net-wireless/blueberry-1.4.6::gentoo[python_single_target_python3_9]
-# required by blueberry (argument)
 >=x11-libs/xapp-2.2.8 introspection
-# required by xfce-base/thunar-4.17.7::gentoo[udisks]
-# required by thunar (argument)
 >=gnome-base/gvfs-1.48.1-r1 udisks
-# required by x11-misc/obmenu-generator-0.90::gentoo
-# required by obmenu-generator (argument)
 >=dev-lang/perl-5.34.0-r6 gdbm
-# required by media-video/vlc-3.0.17.3::gentoo
-# required by vlc (argument)
 >=sys-libs/zlib-1.2.11-r5 minizip
-# required by net-im/kotatogram-desktop-1.4.9::yago
-# required by kotatogram-desktop (argument)
 >=media-video/ffmpeg-4.4.1-r2 opus
-# required by net-im/kotatogram-desktop-1.4.9::yago
-# required by kotatogram-desktop (argument)
 #>=media-libs/tg_owt-0_pre20220209 -X
 x11-misc/rofi X
 dev-libs/libucl lua_single_target_lua5-3
 xfce-extra/xfce4-sensors-plugin lm-sensors hddtemp
 #xfce-extra/xfce4-systemload-plugin upower
-# required by gnome-base/gnome-shell-42.0::gentoo
-# required by gnome-base/gdm-42.0::gentoo
 >=gnome-base/gnome-control-center-42.0 networkmanager
 media-video/wireplumber lua_single_target_lua5-4
-app-portage/portage-bashrc-mv -cflags -ccache -remove-la
-sys-devel/gcc -lto -zstd
-sys-devel/binutils -binutils -gas
+app-portage/portage-bashrc-mv -ccache -remove-la
+sys-devel/gcc -pgo -lto
+#sys-devel/binutils::12101111-overlay -binutils -gas
 >=media-libs/libpng-1.6.37-r2 apng
 >=media-libs/libvpx-1.11.0 postproc
-#www-client/firefox-musl-bin -hardened
+www-client/firefox hwaccel screencast
 lxqt-base/lxqt-meta about display-manager filemanager trash powermanagement processviewer
 lxqt-base/lxqt-panel cpuload lm-sensors networkmonitor sysstat tray
 x11-libs/libfm gtk
-# required by gui-apps/mpvpaper-1.2::guru
-# required by mpvpaper (argument)
 >=media-video/mpv-0.34.1-r1 libmpv
 app-emulation/qemu QEMU_SOFTMMU_TARGETS: x86_64 QEMU_USER_TARGETS: x86_64
 x11-misc/tint2 svg
@@ -92,9 +61,6 @@ app-editors/nano magic
 sys-apps/s6-linux-init -sysv-utils
 #x11-misc/urxvt-perls deprecated
 #sys-apps/systemd-utils -udev
-# required by gnome-base/gnome-keyring-40.0-r1::gentoo
-# required by virtual/secret-service-0::gentoo
-# required by app-crypt/libsecret-0.20.5-r3::gentoo
 >=app-crypt/gcr-3.41.0 gtk
 media-sound/pulseeffects calf
 media-sound/pulseaudio -daemon
@@ -115,44 +81,23 @@ media-libs/phonon -vlc
 net-misc/networkmanager -gtk-doc -lto -nss -ppp libedit gnutls
 media-fonts/noto -cjk -extra
 kde-frameworks/kitemmodels qml
-# required by kde-plasma/xdg-desktop-portal-kde-5.24.5-r1::gentoo
-# required by kde-plasma/plasma-meta-5.24.5::gentoo[desktop-portal]
-# required by plasma-meta (argument)
 >=dev-qt/qtprintsupport-5.15.4 cups
 >=app-text/ghostscript-gpl-9.56.1 cups
 >=kde-frameworks/prison-5.94.0 qml
-# required by kde-frameworks/qqc2-desktop-style-5.94.0::gentoo
-# required by kde-plasma/plasma-desktop-5.24.5::gentoo
-# required by kde-plasma/plasma-meta-5.24.5::gentoo
-# required by plasma-meta (argument)
 >=kde-frameworks/sonnet-5.94.0 qml
 kde-apps/kio-extras -sftp
 #media-libs/gstreamer introspection
 #gui-wm/wayfire -system-wlroots
 gui-apps/pico-wayfire recommended -fonts
-# required by x11-themes/pico-wayfire-icon-theme-4::wayland-desktop
-# required by gui-apps/pico-wayfire-9999::Arknights
-# required by pico-wayfire::Arknights (argument)
 >=x11-themes/beautyline-icon-theme-0_p20211220092736 -no-inherit
-# required by x11-themes/pico-wayfire-icon-theme-4::wayland-desktop
-# required by gui-apps/pico-wayfire-9999::Arknights
-# required by pico-wayfire::Arknights (argument)
 >=x11-themes/candy-icon-theme-0_pre20211113 no-inherit
-# required by x11-themes/pico-wayfire-icon-theme-4::wayland-desktop
-# required by gui-apps/pico-wayfire-9999::Arknights
-# required by pico-wayfire::Arknights (argument)
 >=x11-themes/hey-icon-theme-0_pre20191021 no-inherit
-# required by x11-themes/pico-wayfire-icon-theme-4::wayland-desktop
-# required by gui-apps/pico-wayfire-9999::Arknights
-# required by pico-wayfire::Arknights (argument)
 >=x11-themes/oie-icon-theme-0_p20190915 no-inherit
 sys-apps/inxi hddtemp
 media-libs/gst-plugins-bad -introspection
 #dev-lang/python:3.11 -lto
 xfce-extra/xfce4-power-manager networkmanager
-# required by kde-plasma/plasma-meta-5.25.0::gentoo
-# required by @selected
-# required by @world (argument)
 >=kde-plasma/kwin-5.25.0 lock
 >=kde-frameworks/kconfig-5.95.0 qml
 >=sys-libs/libcap-2.65 static-libs
+>=gui-apps/swaybg-1.1.1 gdk-pixbuf

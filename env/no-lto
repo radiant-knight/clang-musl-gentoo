@@ -5,3 +5,6 @@ CFLAGS="${_NOLTO_}"
 CXXFLAGS="${_NOLTO_}"
 FCFLAGS="${_NOLTO_}"
 FFLAGS="${_NOLTO_}"
+
+LDFLAGS="-Wl,-O3,--as-needed,--gc-sections,--icf=safe,-zrelro,-znow \
+-march=sandybridge -mno-avx -mno-aes -mno-rdrnd -mtune=sandybridge"
