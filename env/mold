@@ -1,10 +1,8 @@
-_MOLD_="-march=sandybridge -mno-avx -mno-aes -mno-rdrnd -mtune=sandybridge -O3 -pipe \
--falign-functions=32 -ffunction-sections -fdata-sections \
--fomit-frame-pointer -mllvm -polly -mllvm -polly-vectorizer=stripmine"
+_MOLD_="-march=sandybridge -mno-avx -mno-aes -mno-rdrnd -mtune=sandybridge -O2 -pipe"
 CFLAGS="${_MOLD_}"
 CXXFLAGS="${_MOLD_}"
 FCFLAGS="${_MOLD_}"
 FFLAGS="${_MOLD_}"
 
-LDFLAGS="-fuse-ld=mold -Wl,-O3,--as-needed,--gc-sections,--icf=safe,-zrelro,-znow \
+LDFLAGS="-fuse-ld=mold -Wl,-O2,--as-needed \
 -march=sandybridge -mno-avx -mno-aes -mno-rdrnd -mtune=sandybridge"

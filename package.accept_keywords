@@ -1,20 +1,10 @@
-sys-libs/basu ~amd64
-gui-apps/foot ~amd64
-media-libs/fcft ~amd64
-gui-apps/foot-terminfo ~amd64
-dev-libs/tllist ~amd64
-sys-kernel/gentoo-kernel-bin ~amd64
-virtual/dist-kernel ~amd64
-app-misc/pfetch ~amd64
-gui-apps/wlsunset ~amd64
+# Live 9999 version
 gui-apps/oguri **
-dev-libs/bemenu ~amd64
 gui-apps/waybar **
-#media-plugins/calf **
 gui-liri/liri-shel **
-#media-libs/lsp-plugins **
 gui-wm/kiwmi **
 www-client/firefox-musl-bin **
 x11-misc/picom **
 gui-apps/pico-wayfire **
-#x11-libs/pixman **
+x11-plugins/wmrecord **
+gui-apps/wofi **

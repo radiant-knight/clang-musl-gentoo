@@ -1,57 +1,82 @@
-#sys-devel/clang-runtime sanitize
+# Compiler
 sys-devel/llvm -binutils-plugin polly libedit llvm_targets_X86
-sys-devel/clang -pie llvm_targets_X86
-media-sound/easyeffects calf
+sys-devel/llvm-conf binutils-wrappers clang-wrappers native-symlinks
+sys-devel/clang -pie llvm_targets_X86 python_single_target_python3_9 -python_single_target_python3_10
+dev-lang/ghc ghcbootstrap
+
+# Apps
+media-sound/easyeffects calf mda-lv2 zamaudio
 gui-apps/waybar network tray wifi libcxx -mpd
 xfce-base/thunar udisks -trash-panel-plugin
+x11-terms/rxvt-unicode 256-color blink startup-notification xft unicode3 utmp wtmp perl fading-colors
+xfce-base/xfce4-settings libcanberra
+media-video/vlc libass xml taglib svg skins
+net-im/kotatogram-desktop -jemalloc -spell -hunspell -wayland
+net-im/telegram-desktop -spell -hunspell -jemalloc
+www-client/firefox hwaccel screencast
+media-video/mpv libmpv
+media-sound/pulseeffects calf bs2b rubberband zamaudio
+dev-util/geany -vte
+mate-base/mate-control-center accountsservice
+xfce-extra/xfce4-power-manager networkmanager
+x11-terms/gnome-terminal -gnome-shell -nautilus
+gnome-base/nautilus -previewer
+app-editors/pluma python_single_target_python3_9 -python_single_target_python3_10
+kde-apps/spectacle share
+media-sound/ncmpcpp clock lto -nls outputs taglib visualizer
+x11-misc/rofi X
+
+# Minimalist Plasma-desktop
+kde-plasma/plasma-meta -bluetooth -networkmanager -legacy-systray -browser-integration -crash-handler -crypt -wallpapers -smart
+kde-plasma/plasma-desktop -kaccounts -semantic-desktop
+kde-plasma/plasma-workspace -calendar -semantic-desktop
+kde-plasma/powerdevil -wireless
+kde-frameworks/purpose -bluetooth -kaccounts
+kde-frameworks/ktexteditor -editorconfig
+kde-frameworks/kitemmodels qml
+kde-plasma/kwin-5.25.0 lock
+kde-frameworks/kconfig qml
+kde-frameworks/prison qml
+kde-frameworks/kio -acl
+kde-frameworks/sonnet qml -hunsplell
+kde-apps/kio-extras -sftp
+
+# Other
 sys-auth/polkit duktape
 x11-wm/openbox imlib session startup-notification xdg
 x11-misc/tint2 battery startup-notification tint2conf
-x11-terms/rxvt-unicode 256-color blink startup-notification xft unicode3 utmp wtmp perl fading-colors
 x11-wm/dwm savedconfig
-xfce-base/xfce4-settings libcanberra
 gnome-base/gvfs archive mtp
 xfce-extra/tumbler curl ffmpeg
 www-client/w3m imlib
-media-video/vlc libass xml taglib svg skins
-#dev-util/sccache dist-client dist-server memcached
-net-im/kotatogram-desktop -jemalloc -spell -hunspell -wayland
-net-im/telegram-desktop -spell -hunspell -jemalloc
 media-libs/openh264 plugin
 sys-process/htop lm-sensors
-#dev-libs/libpcre -readline
 sys-kernel/linux-firmware savedconfig
 media-libs/mesa -gallium -llvm
 gui-wm/sway tray X grimshot wallpapers
 dev-util/ccache -static-c++
->=media-libs/libglvnd-1.4.0 X
->=gui-libs/wlroots-0.14.0-r2 X
->=media-libs/rubberband-2.0.0 ladspa
->=media-plugins/calf-0.90.3-r1 lv2
->=dev-libs/libdbusmenu-16.04.0-r1 gtk3
->=dev-libs/libpcre2-10.39 pcre32 -libedit
->=x11-libs/xapp-2.2.8 introspection
->=gnome-base/gvfs-1.48.1-r1 udisks
->=dev-lang/perl-5.34.0-r6 gdbm
->=sys-libs/zlib-1.2.11-r5 minizip
->=media-video/ffmpeg-4.4.1-r2 opus
-#>=media-libs/tg_owt-0_pre20220209 -X
-x11-misc/rofi X
+media-libs/libglvnd-1.4.0 X
+gui-libs/wlroots X vulkan x11-backend
+media-libs/rubberband-2.0.0 ladspa
+media-plugins/calf-0.90.3-r1 lv2
+dev-libs/libdbusmenu-16.04.0-r1 gtk3
+dev-libs/libpcre2-10.39 pcre32 -libedit
+x11-libs/xapp-2.2.8 introspection
+gnome-base/gvfs-1.48.1-r1 udisks
+dev-lang/perl-5.34.0-r6 gdbm
+sys-libs/zlib-1.2.11-r5 minizip
+media-video/ffmpeg opus
 dev-libs/libucl lua_single_target_lua5-3
 xfce-extra/xfce4-sensors-plugin lm-sensors hddtemp
-#xfce-extra/xfce4-systemload-plugin upower
->=gnome-base/gnome-control-center-42.0 networkmanager
+gnome-base/gnome-control-center networkmanager -gnome-online-accounts
 media-video/wireplumber lua_single_target_lua5-4
 app-portage/portage-bashrc-mv -ccache -remove-la
-sys-devel/gcc -pgo -lto
-#sys-devel/binutils::12101111-overlay -binutils -gas
->=media-libs/libpng-1.6.37-r2 apng
->=media-libs/libvpx-1.11.0 postproc
-www-client/firefox hwaccel screencast
+sys-devel/binutils -binutils -gas -gprof -ld
+media-libs/libpng-1.6.37-r2 apng
+media-libs/libvpx-1.11.0 postproc
 lxqt-base/lxqt-meta about display-manager filemanager trash powermanagement processviewer
 lxqt-base/lxqt-panel cpuload lm-sensors networkmonitor sysstat tray
 x11-libs/libfm gtk
->=media-video/mpv-0.34.1-r1 libmpv
 app-emulation/qemu QEMU_SOFTMMU_TARGETS: x86_64 QEMU_USER_TARGETS: x86_64
 x11-misc/tint2 svg
 gui-apps/wlogout layershell zsh-completions
@@ -59,18 +84,12 @@ x11-wm/icewm imlib
 x11-libs/vte -vala
 app-editors/nano magic
 sys-apps/s6-linux-init -sysv-utils
-#x11-misc/urxvt-perls deprecated
-#sys-apps/systemd-utils -udev
->=app-crypt/gcr-3.41.0 gtk
-media-sound/pulseeffects calf
+app-crypt/gcr-3.41.0 gtk
 media-sound/pulseaudio -daemon
 sci-libs/fftw -fortran
-dev-util/geany -vte
 media-libs/gstreamer -caps -introspection -orc
-kde-plasma/plasma-meta -browser-integration -crash-handler -crypt -wallpapers
 x11-wm/enlightenment acpi udisks xwayland
 x11-wm/fvwm svg
-mate-base/mate-control-center accountsservice
 mate-base/mate -themes
 mate-extra/mate-utils udisks
 mate-base/mate-settings-daemon rfkill
@@ -80,24 +99,20 @@ mate-base/mate-applets-meta sensors
 media-libs/phonon -vlc
 net-misc/networkmanager -gtk-doc -lto -nss -ppp libedit gnutls
 media-fonts/noto -cjk -extra
-kde-frameworks/kitemmodels qml
->=dev-qt/qtprintsupport-5.15.4 cups
->=app-text/ghostscript-gpl-9.56.1 cups
->=kde-frameworks/prison-5.94.0 qml
->=kde-frameworks/sonnet-5.94.0 qml
-kde-apps/kio-extras -sftp
-#media-libs/gstreamer introspection
-#gui-wm/wayfire -system-wlroots
+dev-qt/qtprintsupport-5.15.4 cups
 gui-apps/pico-wayfire recommended -fonts
->=x11-themes/beautyline-icon-theme-0_p20211220092736 -no-inherit
->=x11-themes/candy-icon-theme-0_pre20211113 no-inherit
->=x11-themes/hey-icon-theme-0_pre20191021 no-inherit
->=x11-themes/oie-icon-theme-0_p20190915 no-inherit
+x11-themes/beautyline-icon-theme-0_p20211220092736 -no-inherit
+x11-themes/candy-icon-theme-0_pre20211113 no-inherit
+x11-themes/hey-icon-theme-0_pre20191021 no-inherit
+x11-themes/oie-icon-theme-0_p20190915 no-inherit
 sys-apps/inxi hddtemp
 media-libs/gst-plugins-bad -introspection
-#dev-lang/python:3.11 -lto
-xfce-extra/xfce4-power-manager networkmanager
->=kde-plasma/kwin-5.25.0 lock
->=kde-frameworks/kconfig-5.95.0 qml
->=sys-libs/libcap-2.65 static-libs
->=gui-apps/swaybg-1.1.1 gdk-pixbuf
+sys-libs/libcap-2.65 static-libs
+gui-apps/swaybg-1.1.1 gdk-pixbuf
+sys-kernel/xanmod-sources -experimental
+gnome-base/gnome-light -gnome-shell
+media-libs/gstreamer-1.20.2 introspection
+media-fonts/fontawesome ttf
+media-fonts/fonts-meta -latin emoji
+net-print/cups-filters -postscript
+app-text/ghostscript-gpl cups
