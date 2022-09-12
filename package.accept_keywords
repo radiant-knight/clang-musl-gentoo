@@ -8,3 +8,5 @@ x11-misc/picom **
 gui-apps/pico-wayfire **
 x11-plugins/wmrecord **
 gui-apps/wofi **
+#gui-libs/wlroots **
+gui-wm/hyprland **

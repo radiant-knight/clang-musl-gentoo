@@ -5,7 +5,7 @@ app-text/tree /-flto*/-fno-lto
 #sys-devel/clang /-flto*/-fno-lto
 
 # Full LTO
-sys-libs/musl /-flto*/-flto=full
+#sys-libs/musl /-flto*/-flto=full
 sys-devel/lld /-flto*/-flto=full
 sys-libs/polly /-flto*/-flto=full
 

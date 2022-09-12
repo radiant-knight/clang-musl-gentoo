@@ -1,0 +1,2 @@
+
+CXXFLAGS="${CXXFLAGS} -DBOOST_NO_CXX98_FUNCTION_BASE -Wno-unused-but-set-variable -Wno-deprecated-builtins"
