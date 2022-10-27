@@ -1,6 +1,0 @@
-
-[lilium]
-location = /var/db/repos/lilium
-sync-type = git
-sync-uri = https://github.com/owl4ce/lilium.git
-

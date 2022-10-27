@@ -1,8 +1,7 @@
-_MOLD_="-march=sandybridge -mno-avx -mno-aes -mno-rdrnd -mtune=sandybridge -O2 -pipe"
+_MOLD_="-march=native -O3 -pipe"
 CFLAGS="${_MOLD_}"
 CXXFLAGS="${_MOLD_}"
 FCFLAGS="${_MOLD_}"
 FFLAGS="${_MOLD_}"
 
-LDFLAGS="-fuse-ld=mold -Wl,-O2,--as-needed \
--march=sandybridge -mno-avx -mno-aes -mno-rdrnd -mtune=sandybridge"
+LDFLAGS="-fuse-ld=mold -Wl,-O3,--as-needed -march=native"

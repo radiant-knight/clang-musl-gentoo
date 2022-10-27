@@ -1,19 +1,21 @@
 # No LTO
 media-plugins/calf /-flto*/-fno-lto
 app-text/tree /-flto*/-fno-lto
-#sys-devel/llvm /-flto*/-fno-lto
-#sys-devel/clang /-flto*/-fno-lto
+sys-devel/llvm /-flto*/-fno-lto
+sys-devel/clang /-flto*/-fno-lto
+sys-libs/musl /-flto*/-fno-lto
+dev-lang/spidermonkey /-flto*/-fno-lto
+#dev-lang/rust /-flto*/-fno-lto
 
 # Full LTO
 #sys-libs/musl /-flto*/-flto=full
 sys-devel/lld /-flto*/-flto=full
 sys-libs/polly /-flto*/-flto=full
 
-# No Mold
-
 # Workaround
-dev-libs/libsodium /*avx//
-sys-apps/exa RUSTFLAGS-=-Ctarget-cpu* RUSTFLAGS+=-Ctarget-cpu=native
-sys-apps/bat RUSTFLAGS-=-Ctarget-cpu* RUSTFLAGS+=-Ctarget-cpu=native
-net-libs/nodejs /-mno*// /-mtune*// /-march*// CFLAGS+=-march=native CXXFLAGS+=-march=native
-www-client/firefox RUSTFLAGS-=-Clink-args=-Wl,* RUSTFLAGS-=-Ctarget-feature=-avx,* RUSTFLAGS+=-Ctarget-feature=-avx RUSTFLAGS+=-Ctarget-feature=-aes RUSTFLAGS+=-Ctarget-feature=-rdrand
+# Rust isn't used for final link
+www-client/firefox RUSTFLAGS-=-Clink-args=-Wl,*
+dev-lang/spidermonkey RUSTFLAGS-=-Clink-args=-Wl,*
+
+dev-util/cmake C*FLAGS+=-Wno-unused-command-line-argument
+dev-libs/libedit C*FLAGS+=-D__STDC_ISO_10646__=201103L

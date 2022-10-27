@@ -1,9 +1,9 @@
-# Compiler
+# Coompiler
 sys-devel/llvm -binutils-plugin polly libedit llvm_targets_X86
 sys-devel/llvm-conf binutils-wrappers clang-wrappers native-symlinks
 sys-libs/polly python_single_target_python3_11 -python_single_target_python3_10
 sys-libs/polly:14 -python_single_target_python3_11 python_single_target_python3_10
-sys-devel/clang -pie llvm_targets_X86 python_single_target_python3_11 -python_single_target_python3_10 -python_single_target_python3_9
+sys-devel/clang -extra -pie llvm_targets_X86 python_single_target_python3_11 -python_single_target_python3_10 -python_single_target_python3_9
 sys-devel/clang:14 -pie llvm_targets_X86 -python_single_target_python3_11 -python_single_target_python3_10 python_single_target_python3_9
 dev-lang/ghc ghcbootstrap
 
@@ -15,24 +15,38 @@ x11-terms/rxvt-unicode 256-color blink startup-notification xft unicode3 utmp wt
 xfce-base/xfce4-settings libcanberra
 media-video/vlc libass xml taglib svg skins
 net-im/kotatogram-desktop -jemalloc -spell -hunspell -wayland
-net-im/telegram-desktop -spell -hunspell -jemalloc
-www-client/firefox hwaccel screencast -lto
+net-im/telegram-desktop -wayland -spell -hunspell -jemalloc
+www-client/firefox hwaccel screencast -X
 media-video/mpv libmpv
 media-sound/pulseeffects calf bs2b rubberband zamaudio
 dev-util/geany -vte
 mate-base/mate-control-center accountsservice
-xfce-extra/xfce4-power-manager networkmanager
-x11-terms/gnome-terminal -gnome-shell -nautilus
-gnome-base/nautilus -previewer
-app-editors/pluma python_single_target_python3_9 -python_single_target_python3_10
+# move xfce-extra/xfce4-power-manager xfce-base/xfce4-power-manager
+xfce-base/xfce4-power-manager networkmanager
+app-editors/pluma python_single_target_python3_11 -python_single_target_python3_10
 kde-apps/spectacle share
 media-sound/ncmpcpp clock lto -nls outputs taglib visualizer
 x11-misc/rofi X
+x11-terms/alacritty -X
+app-editors/vim python_single_target_python3_11 -python_single_target_python3_10
+net-wireless/blueman python_single_target_python3_11 -python_single_target_python3_10
+
+# Container
+app-emulation/waydroid python_single_target_python3_10
+#app-containers/lxc apparmor
+app-containers/lxd apparmor
+app-containers/podman apparmor
+app-containers/docker apparmor
+app-containers/containerd apparmor
+dev-libs/raft lz4
+dev-util/xdelta lzma
+sys-fs/squashfs-tools lzma
 
 # Minimalist Plasma-desktop
 kde-plasma/plasma-meta -bluetooth -networkmanager -legacy-systray -browser-integration -crash-handler -crypt -wallpapers -smart
 kde-plasma/plasma-desktop -kaccounts -semantic-desktop
-kde-plasma/plasma-workspace -calendar -semantic-desktop
+kde-plasma/plasma-workspace -calendar -semantic-desktop -wallpaper-metadata
+kde-plasma/kdeplasma-addons -alternate-calendar
 kde-plasma/powerdevil -wireless
 kde-frameworks/purpose -bluetooth -kaccounts
 kde-frameworks/ktexteditor -editorconfig
@@ -43,14 +57,26 @@ kde-frameworks/prison qml
 kde-frameworks/kio -acl
 kde-frameworks/sonnet qml -hunsplell
 kde-apps/kio-extras -sftp
+kde-frameworks/ki18n python_single_target_python3_11 -python_single_target_python3_10
 
-# Others
+# Lightweight Gnome Desktop
+x11-terms/gnome-terminal -gnome-shell -nautilus
+gnome-base/nautilus -previewer
+gnome-base/gvfs archive mtp udisks
+gnome-base/gnome-control-center networkmanager -gnome-online-accounts
+gnome-base/gnome-shell python_single_target_python3_11 -python_single_target_python3_10 -browser-extension
+gnome-extra/evolution-data-server -weather -gnome-online-accounts
+x11-wm/mutter gnome
+gnome-base/gnome-light -cups
+gnome-extra/gnome-tweaks python_single_target_python3_11 -python_single_target_python3_10
+
+# Misc
 sys-auth/polkit duktape
-x11-wm/openbox imlib session startup-notification xdg
+x11-wm/openbox imlib session startup-notification xdg python_single_target_python3_10
 x11-misc/tint2 battery startup-notification tint2conf
 x11-wm/dwm savedconfig
-gnome-base/gvfs archive mtp
-xfce-extra/tumbler curl ffmpeg
+# move xfce-extra/tumbler xfce-base/tumbler
+xfce-base/tumbler curl ffmpeg
 www-client/w3m imlib
 media-libs/openh264 plugin
 sys-process/htop lm-sensors
@@ -62,19 +88,18 @@ media-libs/libglvnd X
 gui-libs/wlroots X vulkan x11-backend
 media-libs/rubberband ladspa
 media-plugins/calf lv2
+media-libs/lv2 python_single_target_python3_10
 dev-libs/libdbusmenu gtk3
 dev-libs/libpcre2 pcre32 -libedit
 x11-libs/xapp introspection
-gnome-base/gvfs udisks
 dev-lang/perl gdbm
 sys-libs/zlib minizip
 media-video/ffmpeg opus
 dev-libs/libucl lua_single_target_lua5-3
 xfce-extra/xfce4-sensors-plugin lm-sensors hddtemp
-gnome-base/gnome-control-center networkmanager -gnome-online-accounts
 media-video/wireplumber lua_single_target_lua5-4
 app-portage/portage-bashrc-mv -ccache -remove-la
-sys-devel/binutils -binutils -gas -gprof -ld
+sys-devel/binutils -plugins -binutils -gas -gprof -ld gold
 media-libs/libpng apng
 media-libs/libvpx postproc
 lxqt-base/lxqt-meta about display-manager filemanager trash powermanagement processviewer
@@ -113,10 +138,19 @@ media-libs/gst-plugins-bad -introspection
 sys-libs/libcap static-libs
 gui-apps/swaybg gdk-pixbuf
 sys-kernel/xanmod-sources -experimental
-gnome-base/gnome-light -gnome-shell
 media-libs/gstreamer introspection
 media-fonts/fontawesome ttf
 media-fonts/fonts-meta -latin emoji
 net-print/cups-filters -postscript
 app-text/ghostscript-gpl cups
-gui-wm/hyprland system-wlroots
+gui-wm/hyprland X
+xfce-extra/xfce4-pulseaudio-plugin libcanberra
+sys-libs/libblockdev python_single_target_python3_11 -python_single_target_python3_10
+net-libs/nodejs -lto -npm
+dev-libs/gobject-introspection python_single_target_python3_11 -python_single_target_python3_10
+sys-firmware/intel-microcode hostonly initramfs
+media-libs/lilv python_single_target_python3_11 -python_single_target_python3_10
+dev-lang/spidermonkey -lto -jit
+sys-fs/e2fsprogs -lto
+media-plugins/audacious-plugins ffmpeg speedpitch
+sys-power/acpilight python_single_target_python3_10
