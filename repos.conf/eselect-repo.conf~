@@ -61,3 +61,7 @@ location = /var/db/repos/wayland-desktop
 sync-type = git
 sync-uri = https://github.com/gentoo-mirror/wayland-desktop.git
 
+[akater]
+location = /var/db/repos/akater
+sync-type = git
+sync-uri = https://github.com/gentoo-mirror/akater.git

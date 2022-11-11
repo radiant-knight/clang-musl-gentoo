@@ -1,6 +1,7 @@
-sys-devel/gcc
+#sys-devel/gcc
+www-client/firefox::gentoo
 dev-lang/rust::gentoo
-sys-devel/binutils::gentoo
+#sys-devel/binutils::gentoo
 sys-devel/llvm::gentoo
 */*::mv
 virtual/service-manager::yago
@@ -13,4 +14,4 @@ sys-apps/exa::dm9pZCAq
 >app-containers/lxc-4.0.12::gentoo
 >gui-libs/libwpe-1.12.0::gentoo
 */*::src_prepare-overlay
-kde-plasma/*
+#kde-plasma/*

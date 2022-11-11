@@ -3,21 +3,23 @@ sys-devel/llvm -binutils-plugin polly libedit llvm_targets_X86
 sys-devel/llvm-conf binutils-wrappers clang-wrappers native-symlinks
 sys-libs/polly python_single_target_python3_11 -python_single_target_python3_10
 sys-libs/polly:14 -python_single_target_python3_11 python_single_target_python3_10
-sys-devel/clang -extra -pie llvm_targets_X86 python_single_target_python3_11 -python_single_target_python3_10 -python_single_target_python3_9
-sys-devel/clang:14 -pie llvm_targets_X86 -python_single_target_python3_11 -python_single_target_python3_10 python_single_target_python3_9
-dev-lang/ghc ghcbootstrap
+sys-devel/clang -extra -static-analyzer pie llvm_targets_X86 python_single_target_python3_11 -python_single_target_python3_10 -python_single_target_python3_9
+sys-devel/clang:14 -pie static-analyzer llvm_targets_X86 -python_single_target_python3_11 -python_single_target_python3_10 python_single_target_python3_9
+dev-lang/ghc ghcbootstrap -binary elfutils ghcmakebinary numa profile
 
 # Apps
+app-emacs/emacs-common gui
+app-editors/emacs dynamic-loading gif gsettings gtk gui harfbuzz imagemagick -json lcms libxml2 svg tiff wide-int xft
 media-sound/easyeffects calf mda-lv2 zamaudio
 gui-apps/waybar network tray wifi libcxx -mpd
 xfce-base/thunar udisks -trash-panel-plugin
 x11-terms/rxvt-unicode 256-color blink startup-notification xft unicode3 utmp wtmp perl fading-colors
-xfce-base/xfce4-settings libcanberra
+xfce-base/xfce4-settings libcanberra python_single_target_python3_11 -python_single_target_python3_10
 media-video/vlc libass xml taglib svg skins
 net-im/kotatogram-desktop -jemalloc -spell -hunspell -wayland
 net-im/telegram-desktop -wayland -spell -hunspell -jemalloc
 www-client/firefox hwaccel screencast -X
-media-video/mpv libmpv
+media-video/mpv libmpv python_single_target_python3_11 -python_single_target_python3_10
 media-sound/pulseeffects calf bs2b rubberband zamaudio
 dev-util/geany -vte
 mate-base/mate-control-center accountsservice
@@ -30,6 +32,7 @@ x11-misc/rofi X
 x11-terms/alacritty -X
 app-editors/vim python_single_target_python3_11 -python_single_target_python3_10
 net-wireless/blueman python_single_target_python3_11 -python_single_target_python3_10
+app-editors/gedit python_single_target_python3_11 -python_single_target_python3_10
 
 # Container
 app-emulation/waydroid python_single_target_python3_10
@@ -42,7 +45,7 @@ dev-libs/raft lz4
 dev-util/xdelta lzma
 sys-fs/squashfs-tools lzma
 
-# Minimalist Plasma-desktop
+# Minimalist Plasma-desktop / A huge pile of qt & C++
 kde-plasma/plasma-meta -bluetooth -networkmanager -legacy-systray -browser-integration -crash-handler -crypt -wallpapers -smart
 kde-plasma/plasma-desktop -kaccounts -semantic-desktop
 kde-plasma/plasma-workspace -calendar -semantic-desktop -wallpaper-metadata
@@ -59,16 +62,25 @@ kde-frameworks/sonnet qml -hunsplell
 kde-apps/kio-extras -sftp
 kde-frameworks/ki18n python_single_target_python3_11 -python_single_target_python3_10
 
-# Lightweight Gnome Desktop
+# Lightweight Gnome Desktop without bloatware, malware, ads and other sh*t (lol)
+media-libs/libmediaart gtk -introspection
+media-libs/cogl gles2
+dev-libs/libportal gtk
+dev-libs/folks -telepathy
+media-video/totem python_single_target_python3_11 -python_single_target_python3_10
 x11-terms/gnome-terminal -gnome-shell -nautilus
 gnome-base/nautilus -previewer
 gnome-base/gvfs archive mtp udisks
 gnome-base/gnome-control-center networkmanager -gnome-online-accounts
 gnome-base/gnome-shell python_single_target_python3_11 -python_single_target_python3_10 -browser-extension
 gnome-extra/evolution-data-server -weather -gnome-online-accounts
+dev-libs/libpeas python_single_target_python3_11 -python_single_target_python3_10
 x11-wm/mutter gnome
-gnome-base/gnome-light -cups
 gnome-extra/gnome-tweaks python_single_target_python3_11 -python_single_target_python3_10
+media-plugins/grilo-plugins -youtube
+gnome-base/gnome-core-apps::Arknights bluetooth
+gnome-base/gnome::Arknights -extras # Meta package for Gnome Desktop
+gnome-base/gnome-light::Arknights -cups # Emerge this for the most lightweight Gnome Desktop
 
 # Misc
 sys-auth/polkit duktape
@@ -80,12 +92,12 @@ xfce-base/tumbler curl ffmpeg
 www-client/w3m imlib
 media-libs/openh264 plugin
 sys-process/htop lm-sensors
-sys-kernel/linux-firmware savedconfig
+sys-kernel/linux-firmware compress savedconfig
 media-libs/mesa -gallium -llvm
 gui-wm/sway tray X grimshot wallpapers
 dev-util/ccache -static-c++
 media-libs/libglvnd X
-gui-libs/wlroots X vulkan x11-backend
+gui-libs/wlroots X x11-backend
 media-libs/rubberband ladspa
 media-plugins/calf lv2
 media-libs/lv2 python_single_target_python3_10
@@ -125,7 +137,7 @@ mate-extra/mate-sensors-applet lm-sensors
 mate-base/mate-desktop startup-notification
 mate-base/mate-applets-meta sensors
 media-libs/phonon -vlc
-net-misc/networkmanager -gtk-doc -lto -nss -ppp libedit gnutls
+net-misc/networkmanager -gtk-doc -lto -nss -ppp libedit gnutls iwd
 media-fonts/noto -cjk -extra
 dev-qt/qtprintsupport cups
 gui-apps/pico-wayfire recommended -fonts
@@ -154,3 +166,8 @@ dev-lang/spidermonkey -lto -jit
 sys-fs/e2fsprogs -lto
 media-plugins/audacious-plugins ffmpeg speedpitch
 sys-power/acpilight python_single_target_python3_10
+sys-fs/zfs kernel-builtin
+net-misc/curl websockets
+app-text/yelp-tools python_single_target_python3_11 -python_single_target_python3_10
+media-libs/libsdl2 haptic gles2
+media-libs/libplacebo -vulkan

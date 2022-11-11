@@ -1,0 +1,10 @@
+_NOLTO_="-march=sandybridge -mno-avx -mno-aes -mno-rdrnd -mtune=sandybridge -O3 -pipe \
+-falign-functions=32 -ffunction-sections -fdata-sections \
+-fomit-frame-pointer -mllvm -polly -mllvm -polly-vectorizer=stripmine"
+CFLAGS="${_NOLTO_}"
+CXXFLAGS="${_NOLTO_}"
+FCFLAGS="${_NOLTO_}"
+FFLAGS="${_NOLTO_}"
+
+LDFLAGS="-Wl,-O3,--as-needed,--gc-sections,--icf=safe,-zrelro,-znow \
+-march=sandybridge -mno-avx -mno-aes -mno-rdrnd -mtune=sandybridge"
