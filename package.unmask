@@ -3,6 +3,7 @@ sys-block/zram-init::mv
 app-shells/push::mv
 app-portage/portage-bashrc-mv::mv
 app-shells/runtitle::mv
-www-client/firefox-musl-bin
 #sys-devel/binutils
 sys-kernel/*::src_prepare-overlay
+#*/*::kde
+sys-devel/llvm:16

@@ -5,3 +5,5 @@ app-vim/colorschemes *
 gui-apps/pico-wayfire *
 media-fonts/joypixels *
 app-arch/unrar *
+media-fonts/corefonts *
+net-misc/megasync *

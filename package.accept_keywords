@@ -9,6 +9,31 @@ x11-plugins/wmrecord **
 gui-apps/wofi **
 #gui-libs/wlroots **
 #gui-wm/hyprland **
-#gui-wm/sway **
+gui-wm/sway **
 #app-text/scdoc **
 #app-editors/emacs **
+*/*::kde **
+
+# LLVM/Clang 16 testing!
+# Caveat emptor!
+=dev-libs/libclc-16.0.0_pre* **
+=dev-ml/llvm-ocaml-16.0.0_pre* **
+=dev-python/clang-python-16.0.0_pre* **
+=dev-python/lit-16.0.0_pre* **
+=dev-util/lldb-16.0.0_pre* **
+=sys-devel/clang-16.0.0_pre* **
+=sys-devel/clang-common-16.0.0_pre* **
+=sys-devel/clang-runtime-16.0.0_pre* **
+=sys-devel/clang-toolchain-symlinks-16* **
+=sys-devel/lld-16.0.0_pre* **
+=sys-devel/lld-toolchain-symlinks-16* **
+=sys-devel/llvm-16.0.0_pre* **
+=sys-devel/llvm-common-16.0.0_pre* **
+=sys-devel/llvmgold-16 **
+=sys-devel/llvm-toolchain-symlinks-16* **
+=sys-libs/compiler-rt-16.0.0_pre* **
+=sys-libs/compiler-rt-sanitizers-16.0.0_pre* **
+=sys-libs/libcxx-16.0.0_pre* **
+=sys-libs/libcxxabi-16.0.0_pre* **
+=sys-libs/libomp-16.0.0_pre* **
+=sys-libs/llvm-libunwind-16.0.0_pre* **

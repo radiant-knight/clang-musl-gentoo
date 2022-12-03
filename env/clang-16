@@ -1,0 +1,5 @@
+CFLAGS="-march=native -Os -pipe"
+CXXFLAGS="-march=native -Os -pipe"
+FCFLAGS="-march=native -Os -pipe"
+FFLAGS="-march=native -Os -pipe"
+LDFLAGS="-Wl,-O1 -Wl,--as-needed"

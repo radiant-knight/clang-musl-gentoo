@@ -4,7 +4,6 @@ app-text/tree /-flto*/-fno-lto
 #sys-devel/llvm /-flto*/-fno-lto
 #sys-devel/clang /-flto*/-fno-lto
 #sys-libs/musl /-flto*/-fno-lto
-#dev-lang/spidermonkey /-flto*/-fno-lto
 #dev-lang/rust /-flto*/-fno-lto
 net-libs/nodejs /-flto*/-fno-lto
 
