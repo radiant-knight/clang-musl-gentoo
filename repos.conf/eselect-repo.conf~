@@ -62,12 +62,8 @@ sync-type = git
 sync-uri = https://github.com/gentoo-mirror/wayland-desktop.git
 
 
-[kde]
-location = /var/db/repos/kde
-sync-type = git
-sync-uri = https://github.com/gentoo-mirror/kde.git
 
-[gnome]
-location = /var/db/repos/gnome
+[s6-sys]
+location = /var/db/repos/s6-sys
 sync-type = git
-sync-uri = https://github.com/gentoo-mirror/gnome.git
+sync-uri = https://github.com/mazunki/s6-sys-overlay

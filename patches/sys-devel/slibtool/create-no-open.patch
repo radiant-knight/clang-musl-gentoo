@@ -1,0 +1,142 @@
+diff --git a/src/helper/slbt_archive_import.c b/src/helper/slbt_archive_import.c
+index e8ea5aa..94f247e 100644
+--- a/src/helper/slbt_archive_import.c
++++ b/src/helper/slbt_archive_import.c
+@@ -21,62 +21,6 @@
+ #include "slibtool_readlink_impl.h"
+ #include "slibtool_errinfo_impl.h"
+ 
+-static char * slbt_mri_argument(
+-	int	fdat,
+-	char *	arg,
+-	char *	buf)
+-{
+-	int	i;
+-	char *	lnk;
+-	char *	target;
+-	char 	mricwd[PATH_MAX];
+-	char 	dstbuf[PATH_MAX];
+-
+-	if ((!(strchr(arg,'+'))) && (!(strchr(arg,'-'))))
+-		return arg;
+-
+-	if (arg[0] == '/')
+-		target = arg;
+-	else {
+-		if (slbt_realpath(fdat,".",O_DIRECTORY,mricwd,sizeof(mricwd)))
+-			return 0;
+-
+-		if ((size_t)snprintf(dstbuf,sizeof(dstbuf),"%s/%s",
+-				mricwd,arg) >= sizeof(dstbuf))
+-			return 0;
+-
+-		target = dstbuf;
+-	}
+-
+-	for (i=0,lnk=0; i<1024 && !lnk; i++) {
+-		if (!(tmpnam(buf)))
+-			return 0;
+-
+-		if (!(symlinkat(target,fdat,buf)))
+-			lnk = buf;
+-	}
+-
+-	return lnk;
+-}
+-
+-static void slbt_archive_import_child(
+-	char *	program,
+-	int	fd[2])
+-{
+-	char *	argv[3];
+-
+-	argv[0] = program;
+-	argv[1] = "-M";
+-	argv[2] = 0;
+-
+-	close(fd[1]);
+-
+-	if (dup2(fd[0],0) == 0)
+-		execvp(program,argv);
+-
+-	_exit(EXIT_FAILURE);
+-}
+-
+ int slbt_archive_import(
+ 	const struct slbt_driver_ctx *	dctx,
+ 	struct slbt_exec_ctx *		ectx,
+@@ -86,12 +30,6 @@ int slbt_archive_import(
+ 	int	fdcwd;
+ 	pid_t	pid;
+ 	pid_t	rpid;
+-	int	fd[2];
+-	char *	dst;
+-	char *	src;
+-	char *	fmt;
+-	char	mridst [L_tmpnam];
+-	char	mrisrc [L_tmpnam];
+ 	char	program[PATH_MAX];
+ 
+ 	/* fdcwd */
+@@ -108,56 +46,22 @@ int slbt_archive_import(
+ 			>= sizeof(program))
+ 		return SLBT_BUFFER_ERROR(dctx);
+ 
+-	/* fork */
+-	if (pipe(fd))
++	if ((pid = fork()) < 0)
+ 		return SLBT_SYSTEM_ERROR(dctx,0);
+ 
+-	if ((pid = fork()) < 0) {
+-		close(fd[0]);
+-		close(fd[1]);
+-		return SLBT_SYSTEM_ERROR(dctx,0);
+-	}
+-
+ 	/* child */
+-	if (pid == 0)
+-		slbt_archive_import_child(
+-			program,
+-			fd);
++	if (pid == 0) {
++		execlp(program, program, "qL", dstarchive, srcarchive, NULL);
++		_exit(EXIT_FAILURE);
++	}
+ 
+ 	/* parent */
+-	close(fd[0]);
+-
+ 	ectx->pid = pid;
+-
+-	dst = slbt_mri_argument(fdcwd,dstarchive,mridst);
+-	src = slbt_mri_argument(fdcwd,srcarchive,mrisrc);
+-
+-	if (!dst || !src)
+-		return SLBT_SYSTEM_ERROR(dctx,0);
+-
+-	fmt = "OPEN %s\n"
+-	      "ADDLIB %s\n"
+-	      "SAVE\n"
+-	      "END\n";
+-
+-	if (slbt_dprintf(fd[1],fmt,dst,src) < 0) {
+-		close(fd[1]);
+-		return SLBT_SYSTEM_ERROR(dctx,0);
+-	}
+-
+-	close(fd[1]);
+-
+ 	rpid = waitpid(
+ 		pid,
+ 		&ectx->exitcode,
+ 		0);
+ 
+-	if (dst == mridst)
+-		unlinkat(fdcwd,dst,0);
+-
+-	if (src == mrisrc)
+-		unlinkat(fdcwd,src,0);
+-
+ 	return (rpid == pid) && (ectx->exitcode == 0)
+ 		? 0 : SLBT_CUSTOM_ERROR(dctx,SLBT_ERR_ARCHIVE_IMPORT);
+ }

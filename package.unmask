@@ -1,4 +1,5 @@
-#www-client/firefox
+www-client/firefox::12101111-overlay
+www-client/chromium::12101111-overlay
 sys-block/zram-init::mv
 app-shells/push::mv
 app-portage/portage-bashrc-mv::mv
@@ -7,3 +8,5 @@ app-shells/runtitle::mv
 sys-kernel/*::src_prepare-overlay
 #*/*::kde
 sys-devel/llvm:16
+sys-libs/musl-legacy-compat::12101111-overlay
+sys-libs/libexecinfo::12101111-overlay

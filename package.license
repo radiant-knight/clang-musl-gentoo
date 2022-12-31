@@ -7,3 +7,7 @@ media-fonts/joypixels *
 app-arch/unrar *
 media-fonts/corefonts *
 net-misc/megasync *
+games-fps/quake2-data *
+games-fps/quake2-demodata *
+games-fps/gzdoom *
+games-fps/doom-data *

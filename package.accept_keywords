@@ -1,18 +1,20 @@
 # Live 9999 version
 gui-apps/oguri **
-gui-apps/waybar **
+#gui-apps/waybar **
 gui-liri/liri-shel **
 gui-wm/kiwmi **
 x11-misc/picom **
 gui-apps/pico-wayfire **
 x11-plugins/wmrecord **
-gui-apps/wofi **
+#gui-apps/wofi **
 #gui-libs/wlroots **
 #gui-wm/hyprland **
-gui-wm/sway **
+#gui-wm/sway **
 #app-text/scdoc **
 #app-editors/emacs **
 */*::kde **
+sys-fs/zfs-kmod **
+media-sound/jamesdsp **
 
 # LLVM/Clang 16 testing!
 # Caveat emptor!

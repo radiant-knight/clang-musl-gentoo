@@ -6,11 +6,46 @@ app-text/tree /-flto*/-fno-lto
 #sys-libs/musl /-flto*/-fno-lto
 #dev-lang/rust /-flto*/-fno-lto
 net-libs/nodejs /-flto*/-fno-lto
+media-libs/alsa-lib /-flto*/-fno-lto
+sys-fs/fuse /-flto*/-fno-lto
+sys-apps/pciutils /-flto*/-fno-lto
 
 # Full LTO
 #sys-libs/musl /-flto*/-flto=full
 sys-devel/lld /-flto*/-flto=full
 sys-libs/polly /-flto*/-flto=full
+
+# No polly
+gui-wm/hyprland /-mllvm// /-polly*//
+
+# Less stricter
+dev-python/netifaces C*FLAGS-=-Werror=int-conversion
+app-crypt/seahorse C*FLAGS-=-Werror=int-conversion
+sys-apps/texinfo C*FLAGS-=-Werror=incompatible-pointer-types
+gnome-extra/gucharmap C*FLAGS-=-Werror=incompatible-pointer-types
+x11-apps/xinit C*FLAGS-=-Werror=incompatible-pointer-types
+sys-apps/openrc C*FLAGS-=-Werror=incompatible-pointer-types
+gui-libs/text-engine C*FLAGS-=-Werror=incompatible-pointer-types C*FLAGS+=-Wno-error=return-type
+app-text/poppler C*FLAGS-=-Werror=incompatible-pointer-types
+net-misc/networkmanager C*FLAGS-=-Werror=incompatible-pointer-types
+sys-auth/polkit C*FLAGS-=-Werror=incompatible-pointer-types
+x11-libs/libfontenc C*FLAGS-=-Werror=incompatible-pointer-types
+x11-libs/libxkbfile C*FLAGS-=-Werror=incompatible-pointer-types
+x11-apps/xkbcomp C*FLAGS-=-Werror=incompatible-pointer-types
+dev-lang/python:3.9 C*FLAGS-=-Werror=incompatible-pointer-types
+media-video/mpv C*FLAGS-=-Werror=incompatible-pointer-types
+x11-misc/makedepend C*FLAGS-=-Werror=incompatible-pointer-types
+app-shells/bash C*FLAGS-=-Werror=incompatible-pointer-types
+media-video/pipewire C*FLAGS-=-Werror=incompatible-pointer-types
+x11-libs/gdk-pixbuf C*FLAGS-=-Werror=incompatible-pointer-types
+x11-misc/colord C*FLAGS-=-Werror=incompatible-pointer-types
+sys-apps/iproute2 C*FLAGS-=-Werror=incompatible-pointer-types
+x11-libs/gtk+ C*FLAGS-=-Werror=incompatible-pointer-types
+gnome-base/gnome-control-center C*FLAGS-=-Werror=incompatible-pointer-types
+app-text/recode C*FLAGS-=-Werror=incompatible-pointer-types
+games-misc/typespeed C*FLAGS-=-Werror=incompatible-pointer-types
+app-arch/sharutils C*FLAGS-=-Werror=implicit-function-declaration C*FLAGS+=-Wno-error=int-conversion
+games-fps/quake2-icculus /-Werror*//
 
 # Workaround
 # Rust isn't used for final link

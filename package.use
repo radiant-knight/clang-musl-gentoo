@@ -10,6 +10,7 @@ sys-devel/clang:16 -extra -static-analyzer pie python_single_target_python3_11 -
 sys-devel/clang:15 -extra -static-analyzer pie python_single_target_python3_11 -python_single_target_python3_10
 sys-devel/clang:14 -pie static-analyzer llvm_targets_X86 -python_single_target_python3_11 -python_single_target_python3_10 python_single_target_python3_9
 sys-devel/lld:16 -zstd
+sys-devel/clang-runtime sanitize
 dev-lang/ghc ghcbootstrap -binary elfutils ghcmakebinary numa profile
 
 # Apps
@@ -21,11 +22,10 @@ x11-terms/rxvt-unicode 256-color blink startup-notification xft unicode3 utmp wt
 media-video/vlc libass xml taglib svg skins x264 lua_single_target_lua5-1
 net-im/kotatogram-desktop -jemalloc -spell -hunspell -wayland
 net-im/telegram-desktop wayland -spell -hunspell -jemalloc -qt6 -qt6-imageformats
-www-client/firefox hwaccel screencast -X -pgo
+www-client/firefox hwaccel screencast X pgo
 media-video/mpv libmpv -libplacebo python_single_target_python3_11 -python_single_target_python3_10
 media-sound/pulseeffects calf bs2b rubberband zamaudio
 dev-util/geany -vte
-mate-base/mate-control-center accountsservice
 app-editors/pluma python_single_target_python3_11 -python_single_target_python3_10
 kde-apps/spectacle share
 media-sound/ncmpcpp clock lto -nls outputs taglib visualizer
@@ -39,10 +39,16 @@ net-misc/megasync cryptopp thunar
 media-sound/audacity ffmpeg id3tag mad ogg portsmf sbsms twolame vam
 games-util/lutris python_single_target_python3_11 -python_single_target_python3_10
 games-util/legendary python_single_target_python3_11 -python_single_target_python3_10
+#net-wireless/iwdgui::guru python_targets_python3_9
+gnome-extra/nemo python_single_target_python3_11 -python_single_target_python3_10
+net-wireless/bluez python_single_target_python3_11 -python_single_target_python3_10
+sys-apps/s6-linux-init sysv-utils
+app-admin/testdisk gui ntfs
+www-client/chromium -system-allocator custom-cflags gtk4 lto pgo -hangouts -js-type-check -proprietary-codecs -suid # Will choke your cpu/ram to death xD
 
 # Container
-app-emulation/waydroid python_single_target_python3_10
-app-containers/lxc apparmor man
+app-emulation/waydroid clipboard apparmor python_single_target_python3_10
+app-containers/lxc apparmor
 app-containers/lxd apparmor
 app-containers/podman apparmor
 app-containers/docker apparmor
@@ -85,8 +91,9 @@ x11-wm/mutter gnome
 gnome-extra/gnome-tweaks python_single_target_python3_11 -python_single_target_python3_10
 media-plugins/grilo-plugins -youtube
 gnome-base/gnome-core-apps::Arknights bluetooth
-gnome-base/gnome::Arknights -extras # Meta package for Gnome Desktop
-gnome-base/gnome-light::Arknights -cups # Emerge this for the most lightweight Gnome Desktop
+gnome-base/gnome -extras # Meta package for Gnome Desktop
+gnome-base/gnome-light -cups # Emerge this for the most lightweight Gnome Desktop
+gnome-extra/gnome-browser-connector python_single_target_python3_11 -python_single_target_python3_10
 
 # Enlightenment Desktop
 x11-wm/e16 gnome player -sound xcomposite
@@ -102,10 +109,19 @@ xfce-base/xfce4-power-manager networkmanager
 xfce-extra/xfce4-sensors-plugin lm-sensors hddtemp
 xfce-base/xfce4-meta upower
 
+# Mate Desktop
+mate-base/mate -themes
+mate-extra/mate-utils udisks
+mate-base/mate-settings-daemon rfkill
+mate-extra/mate-sensors-applet lm-sensors
+mate-base/mate-desktop startup-notification
+mate-base/mate-applets-meta sensors
+mate-base/mate-control-center accountsservice
+
 # Misc
 sys-auth/polkit duktape
 x11-wm/openbox imlib session startup-notification xdg python_single_target_python3_10
-x11-misc/tint2 battery startup-notification tint2conf
+x11-misc/tint2 battery startup-notification tint2conf sanitize
 x11-wm/dwm savedconfig alphaborder attachaside barpadding center emojis hidevacanttags personal pertag restartsig roundedcorners systray vanitygaps
 www-client/w3m imlib
 media-libs/openh264 plugin
@@ -115,7 +131,8 @@ media-libs/mesa -gallium -llvm
 gui-wm/sway tray X grimshot wallpapers
 dev-util/ccache -static-c++
 media-libs/libglvnd X
-gui-libs/wlroots X x11-backend
+gui-libs/wlroots tinywl X x11-backend
+x11-base/xorg-server xvfb
 media-libs/rubberband ladspa
 media-plugins/calf lv2
 media-libs/lv2 python_single_target_python3_10
@@ -147,16 +164,10 @@ sci-libs/fftw -fortran
 media-libs/gstreamer -caps -introspection -orc
 x11-wm/enlightenment acpi udisks xwayland
 x11-wm/fvwm svg
-mate-base/mate -themes
-mate-extra/mate-utils udisks
-mate-base/mate-settings-daemon rfkill
-mate-extra/mate-sensors-applet lm-sensors
-mate-base/mate-desktop startup-notification
-mate-base/mate-applets-meta sensors
 media-libs/phonon -vlc
 net-misc/networkmanager -gtk-doc -lto -nss -ppp libedit gnutls iwd
 media-fonts/noto -cjk -extra
-dev-qt/qtprintsupport cups
+dev-qt/qtprintsupport -cups
 gui-apps/pico-wayfire recommended -fonts
 x11-themes/beautyline-icon-theme -no-inherit
 x11-themes/candy-icon-theme no-inherit
@@ -172,7 +183,7 @@ media-fonts/fontawesome ttf
 media-fonts/fonts-meta -latin emoji
 net-print/cups-filters -postscript
 app-text/ghostscript-gpl cups
-gui-wm/hyprland X
+gui-wm/hyprland X -system-wlroots
 sys-libs/libblockdev python_single_target_python3_11 -python_single_target_python3_10
 net-libs/nodejs -lto -npm
 dev-libs/gobject-introspection python_single_target_python3_11 -python_single_target_python3_10
@@ -194,3 +205,18 @@ dev-util/gdbus-codegen python_single_target_python3_11 -python_single_target_pyt
 dev-lang/ruby -rdoc
 media-libs/suil gtk2
 dev-python/pillow lcms webp xcb
+gnome-extra/cinnamon python_single_target_python3_11 -python_single_target_python3_10
+#x11-misc/xdg-utils gnome
+sys-apps/systemd-utils -udev
+dev-lang/python:3.11 pgo
+dev-vcs/git gnome-keyring python_single_target_python3_11 -python_single_target_python3_10
+sys-process/psmisc apparmor
+#media-gfx/imagemagick xml
+games-misc/fortune-mod-kernelcookies offensive
+games-misc/fortune-mod offensive
+games-fps/yamagi-quake2 ctf dedicated gles openal rogue softrender xatrix
+games-fps/quake2-data videos
+games-fps/quake2-icculus aalib demo qmax rogue -sdl xatrix
+media-libs/zmusic fluidsynth mpg123
+games-fps/gzdoom gles2
+games-fps/chocolate-doom vorbis
