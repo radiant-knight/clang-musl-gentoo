@@ -1,5 +1,8 @@
-CFLAGS="-march=native -O3 -pipe -falign-functions=32 -mllvm -polly -mllvm -polly-vectorizer=stripmine"
-CXXFLAGS="-march=native -O3 -pipe -falign-functions=32 -mllvm -polly -mllvm -polly-vectorizer=stripmine"
-FCFLAGS="-march=native -O3 -pipe -falign-functions=32 -mllvm -polly -mllvm -polly-vectorizer=stripmine"
-FFLAGS="-march=native -O3 -pipe -falign-functions=32 -mllvm -polly -mllvm -polly-vectorizer=stripmine"
-LDFLAGS="-Wl,-O3,--as-needed"
+_CLANG="-march=native -mtune=native -O2 -pipe" #-falign-functions=32 -mllvm -polly -mllvm -polly-vectorizer=stripmine
+
+CFLAGS="${_CLANG}"
+CXXFLAGS="${_CLANG}"
+FCFLAGS="${_CLANG}"
+FFLAGS="${_CLANG}"
+
+LDFLAGS="-Wl,-O2,--as-needed -march=native -mtune=native"

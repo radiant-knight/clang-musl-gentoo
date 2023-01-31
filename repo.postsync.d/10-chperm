@@ -1,0 +1,7 @@
+#!/bin/sh
+# SPDX-License-Identifier: GPL-2.0-only
+set -u
+only_main=
+. ${POSTSYNC_FUNCTIONS:-"${PORTAGE_CONFIGROOT-}"/etc/portage/repo.postsync.d/portage-postsyncd-mv.sh} \
+	${1+"$@"}
+chperm_set

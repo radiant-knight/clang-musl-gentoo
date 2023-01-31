@@ -1,8 +1,9 @@
 sys-devel/gcc
 #www-client/firefox::gentoo
-dev-lang/rust::gentoo
+#dev-lang/rust::gentoo
 #sys-devel/binutils::gentoo
 sys-devel/llvm::gentoo
+sys-devel/llvm::xarblu-overlay
 */*::mv
 virtual/service-manager::yago
 sys-apps/xdg-desktop-portal-gtk::yago
@@ -11,7 +12,10 @@ virtual/udev::dm9pZCAq
 app-eselect/eselect-repository::dm9pZCAq
 sys-apps/exa::dm9pZCAq
 */*::12101111-overlay
->app-containers/lxc-4.0.12::gentoo
 */*::src_prepare-overlay
 #kde-plasma/*
 app-emulation/waydroid::guru
+>=app-crypt/seahorse-43.0::gentoo
+*/*::pentoo
+*/*::gentoo-zh
+>dev-lang/spidermonkey-102.6.0::gentoo

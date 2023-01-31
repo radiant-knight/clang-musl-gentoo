@@ -1,15 +1,18 @@
 # Coompiler
-sys-devel/llvm:16 libedit -libffi -ncurses -zstd
+sys-devel/llvm:16 libedit polly -libffi ncurses zstd
 sys-devel/llvm -binutils-plugin polly libedit llvm_targets_X86
 sys-devel/llvm-conf binutils-wrappers clang-wrappers native-symlinks
-sys-libs/polly:15 python_single_target_python3_11 -python_single_target_python3_10
+sys-devel/llvm-common verify-sig
 sys-libs/polly:14 -python_single_target_python3_11 python_single_target_python3_10
-sys-devel/clang-common -stricter
-sys-libs/libomp python_single_target_python3_11 -python_single_target_python3_10
+sys-devel/clang-common -stricter verify-sig
 sys-devel/clang:16 -extra -static-analyzer pie python_single_target_python3_11 -python_single_target_python3_10
 sys-devel/clang:15 -extra -static-analyzer pie python_single_target_python3_11 -python_single_target_python3_10
 sys-devel/clang:14 -pie static-analyzer llvm_targets_X86 -python_single_target_python3_11 -python_single_target_python3_10 python_single_target_python3_9
-sys-devel/lld:16 -zstd
+sys-devel/lld:16 zstd
+dev-util/lldb lzma
+sys-libs/libcxxabi static-libs
+sys-libs/libcxx static-libs
+sys-libs/llvm-libunwind static-libs
 sys-devel/clang-runtime sanitize
 dev-lang/ghc ghcbootstrap -binary elfutils ghcmakebinary numa profile
 
@@ -26,25 +29,17 @@ www-client/firefox hwaccel screencast X pgo
 media-video/mpv libmpv -libplacebo python_single_target_python3_11 -python_single_target_python3_10
 media-sound/pulseeffects calf bs2b rubberband zamaudio
 dev-util/geany -vte
-app-editors/pluma python_single_target_python3_11 -python_single_target_python3_10
 kde-apps/spectacle share
 media-sound/ncmpcpp clock lto -nls outputs taglib visualizer
 x11-misc/rofi X
 #x11-terms/alacritty -X
 x11-terms/st savedconfig
-app-editors/vim python_single_target_python3_11 -python_single_target_python3_10
-net-wireless/blueman python_single_target_python3_11 -python_single_target_python3_10
-app-editors/gedit python_single_target_python3_11 -python_single_target_python3_10
 net-misc/megasync cryptopp thunar
 media-sound/audacity ffmpeg id3tag mad ogg portsmf sbsms twolame vam
-games-util/lutris python_single_target_python3_11 -python_single_target_python3_10
-games-util/legendary python_single_target_python3_11 -python_single_target_python3_10
-#net-wireless/iwdgui::guru python_targets_python3_9
-gnome-extra/nemo python_single_target_python3_11 -python_single_target_python3_10
-net-wireless/bluez python_single_target_python3_11 -python_single_target_python3_10
 sys-apps/s6-linux-init sysv-utils
 app-admin/testdisk gui ntfs
 www-client/chromium -system-allocator custom-cflags gtk4 lto pgo -hangouts -js-type-check -proprietary-codecs -suid # Will choke your cpu/ram to death xD
+gui-apps/fuzzel svg
 
 # Container
 app-emulation/waydroid clipboard apparmor python_single_target_python3_10
@@ -57,13 +52,14 @@ dev-libs/raft lz4
 dev-util/xdelta lzma
 sys-fs/squashfs-tools lzma
 
-# Minimalist Plasma-desktop / A huge pile of qt & C++ / Most bloated DE
+# Minimalist Plasma-desktop
 kde-plasma/plasma-meta -bluetooth -networkmanager -legacy-systray -browser-integration -crash-handler -crypt -wallpapers -smart
 kde-plasma/plasma-desktop -kaccounts -semantic-desktop
 kde-plasma/plasma-workspace -calendar -semantic-desktop -wallpaper-metadata
 kde-plasma/kdeplasma-addons -alternate-calendar
 kde-plasma/powerdevil -wireless
 kde-frameworks/purpose -bluetooth -kaccounts
+kde-frameworks/syntax-highlighting test
 kde-frameworks/ktexteditor -editorconfig
 kde-frameworks/kitemmodels qml
 kde-plasma/kwin lock
@@ -72,28 +68,23 @@ kde-frameworks/prison qml
 kde-frameworks/kio -acl
 kde-frameworks/sonnet qml -hunsplell
 kde-apps/kio-extras -sftp
-kde-frameworks/ki18n python_single_target_python3_11 -python_single_target_python3_10
 
-# Lightweight Gnome Desktop without bloatware, malware, ads and other sh*t (lol)
+# Lightweight Gnome Desktop
 media-libs/libmediaart gtk -introspection
 media-libs/cogl gles2
 dev-libs/libportal gtk
 dev-libs/folks -telepathy
-media-video/totem python_single_target_python3_11 -python_single_target_python3_10
 x11-terms/gnome-terminal -gnome-shell -nautilus
 gnome-base/nautilus gnome sendto -previewer
 gnome-base/gvfs archive mtp udisks
 gnome-base/gnome-control-center networkmanager -gnome-online-accounts
 gnome-base/gnome-shell python_single_target_python3_11 -python_single_target_python3_10 -browser-extension
 gnome-extra/evolution-data-server -weather -gnome-online-accounts
-dev-libs/libpeas python_single_target_python3_11 -python_single_target_python3_10
 x11-wm/mutter gnome
-gnome-extra/gnome-tweaks python_single_target_python3_11 -python_single_target_python3_10
 media-plugins/grilo-plugins -youtube
 gnome-base/gnome-core-apps::Arknights bluetooth
 gnome-base/gnome -extras # Meta package for Gnome Desktop
 gnome-base/gnome-light -cups # Emerge this for the most lightweight Gnome Desktop
-gnome-extra/gnome-browser-connector python_single_target_python3_11 -python_single_target_python3_10
 
 # Enlightenment Desktop
 x11-wm/e16 gnome player -sound xcomposite
@@ -108,6 +99,8 @@ xfce-base/xfce4-settings upower libcanberra python_single_target_python3_11 -pyt
 xfce-base/xfce4-power-manager networkmanager
 xfce-extra/xfce4-sensors-plugin lm-sensors hddtemp
 xfce-base/xfce4-meta upower
+xfce-base/libxfce4ui startup-notification system-info
+xfce-extra/xfce4-notifyd sound
 
 # Mate Desktop
 mate-base/mate -themes
@@ -157,7 +150,6 @@ gui-apps/wlogout layershell zsh-completions
 x11-wm/icewm imlib
 x11-libs/vte -vala
 app-editors/nano magic
-sys-apps/s6-linux-init -sysv-utils
 app-crypt/gcr gtk
 media-sound/pulseaudio -daemon
 sci-libs/fftw -fortran
@@ -167,7 +159,7 @@ x11-wm/fvwm svg
 media-libs/phonon -vlc
 net-misc/networkmanager -gtk-doc -lto -nss -ppp libedit gnutls iwd
 media-fonts/noto -cjk -extra
-dev-qt/qtprintsupport -cups
+dev-qt/qtprintsupport cups
 gui-apps/pico-wayfire recommended -fonts
 x11-themes/beautyline-icon-theme -no-inherit
 x11-themes/candy-icon-theme no-inherit
@@ -184,28 +176,20 @@ media-fonts/fonts-meta -latin emoji
 net-print/cups-filters -postscript
 app-text/ghostscript-gpl cups
 gui-wm/hyprland X -system-wlroots
-sys-libs/libblockdev python_single_target_python3_11 -python_single_target_python3_10
-net-libs/nodejs -lto -npm
-dev-libs/gobject-introspection python_single_target_python3_11 -python_single_target_python3_10
+net-libs/nodejs -lto npm
 sys-firmware/intel-microcode hostonly initramfs
-media-libs/lilv python_single_target_python3_11 -python_single_target_python3_10
 dev-lang/spidermonkey -lto -jit
 sys-fs/e2fsprogs -lto
 media-plugins/audacious-plugins ffmpeg speedpitch
 sys-power/acpilight python_single_target_python3_10
 sys-fs/zfs kernel-builtin
 net-misc/curl websockets
-app-text/yelp-tools python_single_target_python3_11 -python_single_target_python3_10
 media-libs/libsdl2 haptic gles2
 media-libs/libplacebo glslang lcms -vulkan -shaderc
-dev-util/lldb lzma python_single_target_python3_11 -python_single_target_python3_10
 #app-shells/bash pgo
-dev-util/glib-utils python_single_target_python3_11 -python_single_target_python3_10
-dev-util/gdbus-codegen python_single_target_python3_11 -python_single_target_python3_10
 dev-lang/ruby -rdoc
 media-libs/suil gtk2
 dev-python/pillow lcms webp xcb
-gnome-extra/cinnamon python_single_target_python3_11 -python_single_target_python3_10
 #x11-misc/xdg-utils gnome
 sys-apps/systemd-utils -udev
 dev-lang/python:3.11 pgo
@@ -220,3 +204,11 @@ games-fps/quake2-icculus aalib demo qmax rogue -sdl xatrix
 media-libs/zmusic fluidsynth mpg123
 games-fps/gzdoom gles2
 games-fps/chocolate-doom vorbis
+net-misc/rsync -python_single_target_python3_11 python_single_target_python3_10
+sys-apps/usbutils -python_single_target_python3_11 python_single_target_python3_10
+net-misc/aria2 metalink xmlrpc
+app-portage/gverify -python_single_target_python3_11 python_single_target_python3_10
+sys-devel/gettext cvs git cxx
+net-libs/libnma -pkcs11
+sys-devel/distcc -python_single_target_python3_11 python_single_target_python3_10
+app-backup/snapper-gui -python_single_target_python3_11 python_single_target_python3_10

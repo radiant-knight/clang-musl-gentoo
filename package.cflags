@@ -9,6 +9,8 @@ net-libs/nodejs /-flto*/-fno-lto
 media-libs/alsa-lib /-flto*/-fno-lto
 sys-fs/fuse /-flto*/-fno-lto
 sys-apps/pciutils /-flto*/-fno-lto
+dev-lang/ruby /-flto*/-fno-lto
+#dev-libs/libltdl /-flto*/-fno-lto
 
 # Full LTO
 #sys-libs/musl /-flto*/-flto=full
@@ -17,6 +19,7 @@ sys-libs/polly /-flto*/-flto=full
 
 # No polly
 gui-wm/hyprland /-mllvm// /-polly*//
+net-libs/nodejs /-mllvm// /-polly*//
 
 # Less stricter
 dev-python/netifaces C*FLAGS-=-Werror=int-conversion
@@ -46,6 +49,16 @@ app-text/recode C*FLAGS-=-Werror=incompatible-pointer-types
 games-misc/typespeed C*FLAGS-=-Werror=incompatible-pointer-types
 app-arch/sharutils C*FLAGS-=-Werror=implicit-function-declaration C*FLAGS+=-Wno-error=int-conversion
 games-fps/quake2-icculus /-Werror*//
+gnome-base/gconf C*FLAGS-=-Werror=incompatible-pointer-types
+net-mail/mailutils C*FLAGS-=-Werror=incompatible-pointer-types
+app-shells/gitstatus C*FLAGS-=-Werror=incompatible-pointer-types
+dev-libs/apr C*FLAGS-=-Werror=incompatible-pointer-types
+net-misc/ntp C*FLAGS-=-Werror=incompatible-pointer-types
+dev-lang/ruby C*FLAGS-=-Werror=incompatible-pointer-types
+x11-libs/gtksourceview C*FLAGS-=-Werror=incompatible-pointer-types
+media-plugins/gst-plugins-v4l2 C*FLAGS-=-Werror=incompatible-pointer-types
+x11-apps/xmessage C*FLAGS-=-Werror=incompatible-pointer-types
+net-print/cups C*FLAGS-=-Werror=incompatible-pointer-types
 
 # Workaround
 # Rust isn't used for final link

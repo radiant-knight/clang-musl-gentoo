@@ -1,0 +1,16 @@
+#!/bin/sh
+# SPDX-License-Identifier: GPL-2.0-only
+set -u
+only_main=
+. ${POSTSYNC_FUNCTIONS:-"${PORTAGE_CONFIGROOT-}"/etc/portage/repo.postsync.d/portage-postsyncd-mv.sh} \
+	${1+"$@"}
+! repo_in_list '${POSTSYNC_SKIP-}' || exit 0
+restart_as_default "$@"
+
+[ x"$repository_name" != x"$POSTSYNC_MAIN_REPOSITORY" ] || \
+	yesno "${POSTSYNC_MIRROR-}" || if is_git
+then	update_days_file 1 metadata/timestamp.x
+else	exit 0
+fi
+egencache_options
+call_egencache $egencache_options

@@ -1,0 +1,18 @@
+#!/bin/sh
+# SPDX-License-Identifier: GPL-2.0-only
+set -u
+only_main=+
+. ${POSTSYNC_FUNCTIONS:-"${PORTAGE_CONFIGROOT-}"/etc/portage/repo.postsync.d/portage-postsyncd-mv.sh} \
+	${1+"$@"}
+exit_if_mirror
+is_git || exit 0
+restart_as_default "$@"
+
+set -- "${POSTSYNC_DAYS_XML_SCHEMA:-30}" xml-schema.date \
+	metadata/xml-schema /.git
+! max_days_file "$@" || exit 0
+normalize_gitkeep POSTSYNC_KEEP_XML_SCHEMA
+git_clone -g $POSTSYNC_KEEP_XML_SCHEMA -r "${POSTSYNC_RETRY_XML_SCHEMA:-1}" -- \
+	"${POSTSYNC_DEPTH_XML_SCHEMA:-1}" \
+	"${POSTSYNC_URL_XML_SCHEMA:-https://anongit.gentoo.org/git/data/xml-schema.git}" \
+	"$3" 'Updating xml-schema' && update_days_file "$@"

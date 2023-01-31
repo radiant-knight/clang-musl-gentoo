@@ -1,0 +1,12 @@
+#!/bin/sh
+# SPDX-License-Identifier: GPL-2.0-only
+set -u
+only_main=+
+. ${POSTSYNC_FUNCTIONS:-"${PORTAGE_CONFIGROOT-}"/etc/portage/repo.postsync.d/portage-postsyncd-mv.sh} \
+	${1+"$@"}
+is_git || exit 0
+restart_as_default "$@"
+
+set -- "${POSTSYNC_DAYS_GIT_REPACK:-7}" git-repack.date
+! max_days_file "$@" || exit 0
+git_repack . && update_days_file "$@"

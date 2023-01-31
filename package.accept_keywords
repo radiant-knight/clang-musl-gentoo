@@ -15,6 +15,11 @@ x11-plugins/wmrecord **
 */*::kde **
 sys-fs/zfs-kmod **
 media-sound/jamesdsp **
+app-shells/ohmyzsh **
+app-benchmarks/phoronix-test-suite **
+
+# Stable version
+kde-*/* amd64
 
 # LLVM/Clang 16 testing!
 # Caveat emptor!
@@ -39,3 +44,25 @@ media-sound/jamesdsp **
 =sys-libs/libcxxabi-16.0.0_pre* **
 =sys-libs/libomp-16.0.0_pre* **
 =sys-libs/llvm-libunwind-16.0.0_pre* **
+# Release candidate
+=dev-libs/libclc-16.0.0_rc* **
+=dev-ml/llvm-ocaml-16.0.0_rc* **
+=dev-python/clang-python-16.0.0_rc* **
+=dev-python/lit-16.0.0_rc* **
+=dev-util/lldb-16.0.0_rc* **
+=sys-devel/clang-16.0.0_rc* **
+=sys-devel/clang-common-16.0.0_rc* **
+=sys-devel/clang-runtime-16.0.0_rc* **
+=sys-devel/clang-toolchain-symlinks-16* **
+=sys-devel/lld-16.0.0_rc* **
+=sys-devel/lld-toolchain-symlinks-16* **
+=sys-devel/llvm-16.0.0_rc* **
+=sys-devel/llvm-common-16.0.0_rc* **
+=sys-devel/llvmgold-16 **
+=sys-devel/llvm-toolchain-symlinks-16* **
+=sys-libs/compiler-rt-16.0.0_rc* **
+=sys-libs/compiler-rt-sanitizers-16.0.0_rc* **
+=sys-libs/libcxx-16.0.0_rc* **
+=sys-libs/libcxxabi-16.0.0_rc* **
+=sys-libs/libomp-16.0.0_rc* **
+=sys-libs/llvm-libunwind-16.0.0_rc* **

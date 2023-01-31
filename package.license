@@ -11,3 +11,6 @@ games-fps/quake2-data *
 games-fps/quake2-demodata *
 games-fps/gzdoom *
 games-fps/doom-data *
+games-fps/quake2-textures *
+games-fps/urbanterror *
+games-fps/urbanterror-data *

@@ -1,0 +1,17 @@
+#!/bin/sh
+# SPDX-License-Identifier: GPL-2.0-only
+set -u
+only_main=+
+. ${POSTSYNC_FUNCTIONS:-"${PORTAGE_CONFIGROOT-}"/etc/portage/repo.postsync.d/portage-postsyncd-mv.sh} \
+	${1+"$@"}
+exit_if_mirror
+is_git || exit 0
+restart_as_default "$@"
+
+set -- "${POSTSYNC_DAYS_NEWS:-1}" news.date metadata/news /.git
+! max_days_file "$@" || exit 0
+normalize_gitkeep POSTSYNC_KEEP_NEWS
+git_clone -g $POSTSYNC_KEEP_NEWS -r "${POSTSYNC_RETRY_NEWS:-1}" -- \
+	"${POSTSYNC_DEPTH_NEWS:-1}" \
+	"${POSTSYNC_URL_NEWS:-https://anongit.gentoo.org/git/data/gentoo-news.git}" \
+	"$3" 'Updating news' && update_days_file "$@"

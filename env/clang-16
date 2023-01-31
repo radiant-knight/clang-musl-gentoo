@@ -1,5 +1,9 @@
-CFLAGS="-march=native -Os -pipe"
-CXXFLAGS="-march=native -Os -pipe"
-FCFLAGS="-march=native -Os -pipe"
-FFLAGS="-march=native -Os -pipe"
-LDFLAGS="-Wl,-O1 -Wl,--as-needed"
+
+CLANG_16="-march=native -O3 -pipe" #-mllvm -polly -mllvm -polly-vectorizer=stripmine
+
+CFLAGS="${CLANG_16}"
+CXXFLAGS="${CLANG_16}"
+FCFLAGS="${CLANG_16}"
+FFLAGS="${CLANG_16}"
+
+LDFLAGS="-Wl,-O3,--as-needed"

@@ -1,0 +1,17 @@
+#!/bin/sh
+# SPDX-License-Identifier: GPL-2.0-only
+set -u
+only_main=+
+. ${POSTSYNC_FUNCTIONS:-"${PORTAGE_CONFIGROOT-}"/etc/portage/repo.postsync.d/portage-postsyncd-mv.sh} \
+	${1+"$@"}
+exit_if_mirror
+is_git || exit 0
+restart_as_default "$@"
+
+set -- "${POSTSYNC_DAYS_DTD:-30}" dtd.date metadata/dtd /.git
+! max_days_file "$@" || exit 0
+normalize_gitkeep POSTSYNC_KEEP_DTD
+git_clone -g $POSTSYNC_KEEP_DTD -r "${POSTSYNC_RETRY_DTD:-1}" -- \
+	"${POSTSYNC_DEPTH_DTD:-1}" \
+	"${POSTSYNC_URL_DTD:-https://anongit.gentoo.org/git/data/dtd.git}" \
+	"$3" 'Updating DTDs' && update_days_file "$@"
