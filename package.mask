@@ -19,3 +19,4 @@ app-emulation/waydroid::guru
 */*::pentoo
 */*::gentoo-zh
 >dev-lang/spidermonkey-102.6.0::gentoo
+sys-kernel/xanmod-sources::xarblu-overlay

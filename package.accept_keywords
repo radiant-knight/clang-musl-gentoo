@@ -13,7 +13,7 @@ x11-plugins/wmrecord **
 #app-text/scdoc **
 #app-editors/emacs **
 */*::kde **
-sys-fs/zfs-kmod **
+#sys-fs/zfs-kmod **
 media-sound/jamesdsp **
 app-shells/ohmyzsh **
 app-benchmarks/phoronix-test-suite **
@@ -66,3 +66,25 @@ kde-*/* amd64
 =sys-libs/libcxxabi-16.0.0_rc* **
 =sys-libs/libomp-16.0.0_rc* **
 =sys-libs/llvm-libunwind-16.0.0_rc* **
+# LLVM/Clang 17
+=dev-libs/libclc-17.0.0_pre* **
+=dev-ml/llvm-ocaml-17.0.0_pre* **
+=dev-python/clang-python-17.0.0_pre* **
+=dev-python/lit-17.0.0_pre* **
+=dev-util/lldb-17.0.0_pre* **
+=sys-devel/clang-17.0.0_pre* **
+=sys-devel/clang-common-17.0.0_pre* **
+=sys-devel/clang-runtime-17.0.0_pre* **
+=sys-devel/clang-toolchain-symlinks-17* **
+=sys-devel/lld-17.0.0_pre* **
+=sys-devel/lld-toolchain-symlinks-17* **
+=sys-devel/llvm-17.0.0_pre* **
+=sys-devel/llvm-common-17.0.0_pre* **
+=sys-devel/llvmgold-17 **
+=sys-devel/llvm-toolchain-symlinks-17* **
+=sys-libs/compiler-rt-17.0.0_pre* **
+=sys-libs/compiler-rt-sanitizers-17.0.0_pre* **
+=sys-libs/libcxx-17.0.0_pre* **
+=sys-libs/libcxxabi-17.0.0_pre* **
+=sys-libs/libomp-17.0.0_pre* **
+=sys-libs/llvm-libunwind-17.0.0_pre* **

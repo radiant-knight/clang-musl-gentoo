@@ -16,3 +16,4 @@ sys-libs/libexecinfo::12101111-overlay
 games-util/mangohud::12101111-overlay
 sys-devel/elftoolchain::12101111-overlay
 virtual/libelf::12101111-overlay
+sys-devel/llvm:17::gentoo

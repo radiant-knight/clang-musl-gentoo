@@ -1,0 +1,2 @@
+# Disables sphinx build that causing slow compilation and high ram usage
+export LLVM_MANPAGES=0

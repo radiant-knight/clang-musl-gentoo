@@ -1,12 +1,14 @@
 # Coompiler
+sys-devel/llvm:17 libedit polly -libffi ncurses zstd
 sys-devel/llvm:16 libedit polly -libffi ncurses zstd
 sys-devel/llvm -binutils-plugin polly libedit llvm_targets_X86
 sys-devel/llvm-conf binutils-wrappers clang-wrappers native-symlinks
 sys-devel/llvm-common verify-sig
 sys-libs/polly:14 -python_single_target_python3_11 python_single_target_python3_10
 sys-devel/clang-common -stricter verify-sig
-sys-devel/clang:16 -extra -static-analyzer pie python_single_target_python3_11 -python_single_target_python3_10
-sys-devel/clang:15 -extra -static-analyzer pie python_single_target_python3_11 -python_single_target_python3_10
+sys-devel/clang:17 -extra -static-analyzer
+sys-devel/clang:16 -extra -static-analyzer
+sys-devel/clang:15 -extra -static-analyzer pie
 sys-devel/clang:14 -pie static-analyzer llvm_targets_X86 -python_single_target_python3_11 -python_single_target_python3_10 python_single_target_python3_9
 sys-devel/lld:16 zstd
 dev-util/lldb lzma
@@ -26,7 +28,7 @@ media-video/vlc libass xml taglib svg skins x264 lua_single_target_lua5-1
 net-im/kotatogram-desktop -jemalloc -spell -hunspell -wayland
 net-im/telegram-desktop wayland -spell -hunspell -jemalloc -qt6 -qt6-imageformats
 www-client/firefox hwaccel screencast X pgo
-media-video/mpv libmpv -libplacebo python_single_target_python3_11 -python_single_target_python3_10
+media-video/mpv libmpv -libplacebo
 media-sound/pulseeffects calf bs2b rubberband zamaudio
 dev-util/geany -vte
 kde-apps/spectacle share
@@ -40,6 +42,19 @@ sys-apps/s6-linux-init sysv-utils
 app-admin/testdisk gui ntfs
 www-client/chromium -system-allocator custom-cflags gtk4 lto pgo -hangouts -js-type-check -proprietary-codecs -suid # Will choke your cpu/ram to death xD
 gui-apps/fuzzel svg
+app-backup/snapper-gui -python_single_target_python3_11 python_single_target_python3_10
+app-admin/s-tui python_targets_python3_10
+app-text/tldr python_targets_python3_10
+net-misc/aria2 metalink xmlrpc
+
+# Games
+games-misc/fortune-mod-kernelcookies offensive
+games-misc/fortune-mod offensive
+games-fps/yamagi-quake2 ctf dedicated gles openal rogue softrender xatrix
+games-fps/quake2-data videos
+games-fps/quake2-icculus aalib demo qmax rogue -sdl xatrix
+games-fps/gzdoom gles2
+games-fps/chocolate-doom vorbis
 
 # Container
 app-emulation/waydroid clipboard apparmor python_single_target_python3_10
@@ -53,7 +68,7 @@ dev-util/xdelta lzma
 sys-fs/squashfs-tools lzma
 
 # Minimalist Plasma-desktop
-kde-plasma/plasma-meta -bluetooth -networkmanager -legacy-systray -browser-integration -crash-handler -crypt -wallpapers -smart
+kde-plasma/plasma-meta bluetooth -networkmanager -legacy-systray -browser-integration -crash-handler -crypt -wallpapers smart kwallet colord gtk
 kde-plasma/plasma-desktop -kaccounts -semantic-desktop
 kde-plasma/plasma-workspace -calendar -semantic-desktop -wallpaper-metadata
 kde-plasma/kdeplasma-addons -alternate-calendar
@@ -78,7 +93,7 @@ x11-terms/gnome-terminal -gnome-shell -nautilus
 gnome-base/nautilus gnome sendto -previewer
 gnome-base/gvfs archive mtp udisks
 gnome-base/gnome-control-center networkmanager -gnome-online-accounts
-gnome-base/gnome-shell python_single_target_python3_11 -python_single_target_python3_10 -browser-extension
+gnome-base/gnome-shell -browser-extension
 gnome-extra/evolution-data-server -weather -gnome-online-accounts
 x11-wm/mutter gnome
 media-plugins/grilo-plugins -youtube
@@ -95,7 +110,7 @@ x11-wm/enlightenment wayland
 xfce-base/tumbler curl ffmpeg
 xfce-extra/xfce4-pulseaudio-plugin libcanberra
 xfce-base/thunar udisks -trash-panel-plugin
-xfce-base/xfce4-settings upower libcanberra python_single_target_python3_11 -python_single_target_python3_10
+xfce-base/xfce4-settings upower libcanberra
 xfce-base/xfce4-power-manager networkmanager
 xfce-extra/xfce4-sensors-plugin lm-sensors hddtemp
 xfce-base/xfce4-meta upower
@@ -193,22 +208,24 @@ dev-python/pillow lcms webp xcb
 #x11-misc/xdg-utils gnome
 sys-apps/systemd-utils -udev
 dev-lang/python:3.11 pgo
-dev-vcs/git gnome-keyring python_single_target_python3_11 -python_single_target_python3_10
+dev-vcs/git gnome-keyring
 sys-process/psmisc apparmor
 #media-gfx/imagemagick xml
-games-misc/fortune-mod-kernelcookies offensive
-games-misc/fortune-mod offensive
-games-fps/yamagi-quake2 ctf dedicated gles openal rogue softrender xatrix
-games-fps/quake2-data videos
-games-fps/quake2-icculus aalib demo qmax rogue -sdl xatrix
 media-libs/zmusic fluidsynth mpg123
-games-fps/gzdoom gles2
-games-fps/chocolate-doom vorbis
 net-misc/rsync -python_single_target_python3_11 python_single_target_python3_10
 sys-apps/usbutils -python_single_target_python3_11 python_single_target_python3_10
-net-misc/aria2 metalink xmlrpc
 app-portage/gverify -python_single_target_python3_11 python_single_target_python3_10
 sys-devel/gettext cvs git cxx
 net-libs/libnma -pkcs11
 sys-devel/distcc -python_single_target_python3_11 python_single_target_python3_10
-app-backup/snapper-gui -python_single_target_python3_11 python_single_target_python3_10
+app-i18n/ibus -python_targets_python3_11 python_targets_python3_10
+dev-python/setuptools python_targets_python3_10
+dev-python/pycairo python_targets_python3_10
+dev-python/platformdirs python_targets_python3_10
+dev-python/jaraco-context python_targets_python3_10
+gui-libs/gtk-layer-shell introspection
+app-accessibility/caribou -python_single_target_python3_11 python_single_target_python3_10
+dev-python/packaging python_targets_python3_10
+net-firewall/iptables nftables
+dev-python/typing-extensions python_targets_python3_10
+dev-python/pydantic python_targets_python3_10

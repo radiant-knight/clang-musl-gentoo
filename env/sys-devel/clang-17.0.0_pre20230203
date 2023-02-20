@@ -1,0 +1,2 @@
+export LLVM_MANPAGES=0
+export build_docs=OFF

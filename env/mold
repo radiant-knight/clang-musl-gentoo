@@ -1,7 +1,0 @@
-_MOLD_="-march=native -O3 -pipe"
-CFLAGS="${_MOLD_}"
-CXXFLAGS="${_MOLD_}"
-FCFLAGS="${_MOLD_}"
-FFLAGS="${_MOLD_}"
-
-LDFLAGS="-fuse-ld=mold -Wl,-O3,--as-needed -march=native"

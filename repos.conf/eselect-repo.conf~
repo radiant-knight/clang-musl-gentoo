@@ -69,12 +69,8 @@ sync-type = git
 sync-uri = https://github.com/gentoo-mirror/dm9pZCAq.git
 
 
+
 [gentoo-zh]
 location = /var/db/repos/gentoo-zh
 sync-type = git
 sync-uri = https://github.com/gentoo-mirror/gentoo-zh.git
-
-[x11]
-location = /var/db/repos/x11
-sync-type = git
-sync-uri = https://github.com/gentoo-mirror/x11.git
