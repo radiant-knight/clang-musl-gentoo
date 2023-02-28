@@ -1,7 +1,7 @@
 # No LTO
 media-plugins/calf /-flto*/-fno-lto
 app-text/tree /-flto*/-fno-lto
-sys-devel/llvm:16 /-flto*/-fno-lto
+sys-devel/llvm /-flto*/-fno-lto
 #sys-devel/clang /-flto*/-fno-lto
 #dev-lang/rust /-flto*/-fno-lto
 net-libs/nodejs /-flto*/-fno-lto
@@ -78,3 +78,4 @@ sys-fs/fuse LDFLAGS+=-Wl,--undefined-version
 net-libs/libnftnl LDFLAGS+=-Wl,--undefined-version
 dev-qt/qtxml LDFLAGS+=-Wl,--undefined-version
 dev-qt/qtsql LDFLAGS+=-Wl,--undefined-version
+gnome-base/gnome-shell LDFLAGS+=-Wl,--undefined-version
